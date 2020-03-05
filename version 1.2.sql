@@ -1,4 +1,4 @@
-CREATE TABLE `users` (
+CREATE TABLE `springboot`.`users` (
   `user_name` varchar(255) PRIMARY KEY,
   `first_name` varchar(255),
   `last_name` varchar(255),
@@ -10,7 +10,7 @@ CREATE TABLE `users` (
   `active` int
 );
 
-CREATE TABLE `employee` (
+CREATE TABLE `springboot`.`employee` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `first_name` varchar(255),
   `last_name` varchar(255),
@@ -27,7 +27,7 @@ CREATE TABLE `employee` (
   `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE `employee_office_details` (
+CREATE TABLE `springboot`.`employee_office_details` (
   `employee_id` int NOT NULL PRIMARY KEY,
   `reporting_person_id` int NOT NULL,
   `job_role` varchar(255),
@@ -35,7 +35,7 @@ CREATE TABLE `employee_office_details` (
   `department` varchar(255)
 );
 
-CREATE TABLE `workpermit_details` (
+CREATE TABLE `springboot`.`workpermit_details` (
   `employee_id` int NOT NULL,
   `workpermit_number` varchar(255) PRIMARY KEY,
   `start_date` date,
@@ -43,20 +43,20 @@ CREATE TABLE `workpermit_details` (
   `validity` int
 );
 
-CREATE TABLE `workpermit_document_details` (
+CREATE TABLE `springboot`.`workpermit_document_details` (
   `workpermit_number` varchar(255) NOT NULL,
   `document_name` varchar(255),
   `document_data` varchar(255)
 );
 
-CREATE TABLE `payslip_document_details` (
+CREATE TABLE `springboot`.`payslip_document_details` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `document_name` varchar(255),
   `employee_id` int NOT NULL,
   `payslip_month` varchar(255)
 );
 
-CREATE TABLE `passport_details` (
+CREATE TABLE `springboot`.`passport_details` (
   `employee_id` int NOT NULL,
   `passport_number` varchar(255) PRIMARY KEY,
   `start_date` date,
@@ -65,7 +65,7 @@ CREATE TABLE `passport_details` (
   `validity` int
 );
 
-CREATE TABLE `family_details` (
+CREATE TABLE `springboot`.`family_details` (
   `employee_id` int NOT NULL,
   `first_name` varchar(255),
   `last_name` varchar(255),
@@ -73,7 +73,7 @@ CREATE TABLE `family_details` (
   `contact_number` varchar(255)
 );
 
-CREATE TABLE `company` (
+CREATE TABLE `springboot`.`company` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255) UNIQUE,
   `email_id` varchar(255),
@@ -87,7 +87,7 @@ CREATE TABLE `company` (
   `active` int
 );
 
-CREATE TABLE `Audit_Trial` (
+CREATE TABLE `springboot`.`audit_trial` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `updated_by` varchar(255),
   `updated_user` varchar(255),
