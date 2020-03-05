@@ -1,3 +1,5 @@
+CREATE DATABASE springboot;
+
 CREATE TABLE `springboot`.`users` (
   `user_name` varchar(255) PRIMARY KEY,
   `first_name` varchar(255),
