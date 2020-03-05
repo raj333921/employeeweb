@@ -1,5 +1,7 @@
 FROM adoptopenjdk/openjdk11:alpine-jre
 
+FROM mysql/mysql-server:latest
+
 # Refer to Maven build -> finalName
 ARG JAR_FILE=target/employeeweb-1.0-SNAPSHOT.jar
 
