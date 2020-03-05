@@ -14,3 +14,5 @@ MYSQL
 Flutter Framework
 Dart
 
+
+Docker support for mysql : https://dev.mysql.com/doc/mysql-linuxunix-excerpt/5.7/en/docker-mysql-getting-started.html#docker-connecting-within-container
