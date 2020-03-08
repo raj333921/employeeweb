@@ -1,6 +1,6 @@
-CREATE DATABASE springboot;
+CREATE DATABASE employeeproduct;
 
-CREATE TABLE `springboot`.`users` (
+CREATE TABLE `employeeproduct`.`users` (
   `user_name` varchar(255) PRIMARY KEY,
   `first_name` varchar(255),
   `last_name` varchar(255),
@@ -12,7 +12,7 @@ CREATE TABLE `springboot`.`users` (
   `active` int
 );
 
-CREATE TABLE `springboot`.`employee` (
+CREATE TABLE `employeeproduct`.`employee` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `first_name` varchar(255),
   `last_name` varchar(255),
@@ -29,7 +29,7 @@ CREATE TABLE `springboot`.`employee` (
   `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE `springboot`.`employee_office_details` (
+CREATE TABLE `employeeproduct`.`employee_office_details` (
   `employee_id` int NOT NULL PRIMARY KEY,
   `reporting_person_id` int NOT NULL,
   `job_role` varchar(255),
@@ -37,7 +37,7 @@ CREATE TABLE `springboot`.`employee_office_details` (
   `department` varchar(255)
 );
 
-CREATE TABLE `springboot`.`workpermit_details` (
+CREATE TABLE `employeeproduct`.`workpermit_details` (
   `employee_id` int NOT NULL,
   `workpermit_number` varchar(255) PRIMARY KEY,
   `start_date` date,
@@ -45,20 +45,20 @@ CREATE TABLE `springboot`.`workpermit_details` (
   `validity` int
 );
 
-CREATE TABLE `springboot`.`workpermit_document_details` (
+CREATE TABLE `employeeproduct`.`workpermit_document_details` (
   `workpermit_number` varchar(255) NOT NULL,
   `document_name` varchar(255),
   `document_data` varchar(255)
 );
 
-CREATE TABLE `springboot`.`payslip_document_details` (
+CREATE TABLE `employeeproduct`.`payslip_document_details` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `document_name` varchar(255),
   `employee_id` int NOT NULL,
   `payslip_month` varchar(255)
 );
 
-CREATE TABLE `springboot`.`passport_details` (
+CREATE TABLE `employeeproduct`.`passport_details` (
   `employee_id` int NOT NULL,
   `passport_number` varchar(255) PRIMARY KEY,
   `start_date` date,
@@ -67,7 +67,7 @@ CREATE TABLE `springboot`.`passport_details` (
   `validity` int
 );
 
-CREATE TABLE `springboot`.`family_details` (
+CREATE TABLE `employeeproduct`.`family_details` (
   `employee_id` int NOT NULL,
   `first_name` varchar(255),
   `last_name` varchar(255),
@@ -75,7 +75,7 @@ CREATE TABLE `springboot`.`family_details` (
   `contact_number` varchar(255)
 );
 
-CREATE TABLE `springboot`.`company` (
+CREATE TABLE `employeeproduct`.`company` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255) UNIQUE,
   `email_id` varchar(255),
@@ -89,7 +89,7 @@ CREATE TABLE `springboot`.`company` (
   `active` int
 );
 
-CREATE TABLE `springboot`.`audit_trial` (
+CREATE TABLE `employeeproduct`.`audit_trial` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `updated_by` varchar(255),
   `updated_user` varchar(255),
@@ -97,23 +97,23 @@ CREATE TABLE `springboot`.`audit_trial` (
   `updated_company` varchar(255)
 );
 
-ALTER TABLE `users` ADD FOREIGN KEY (`company_id`) REFERENCES `company` (`id`);
+ALTER TABLE `employeeproduct.users` ADD FOREIGN KEY (`company_id`) REFERENCES `employeeproduct.company` (`id`);
 
-ALTER TABLE `employee` ADD FOREIGN KEY (`updated_by`) REFERENCES `users` (`user_name`);
+ALTER TABLE `employeeproduct.employee` ADD FOREIGN KEY (`updated_by`) REFERENCES `employeeproduct.users` (`user_name`);
 
-ALTER TABLE `employee_office_details` ADD FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
+ALTER TABLE `employeeproduct.employee_office_details` ADD FOREIGN KEY (`employee_id`) REFERENCES `employeeproduct.employee` (`id`);
 
-ALTER TABLE `employee_office_details` ADD FOREIGN KEY (`reporting_person_id`) REFERENCES `employee` (`id`);
+ALTER TABLE `employeeproduct.employee_office_details` ADD FOREIGN KEY (`reporting_person_id`) REFERENCES `employeeproduct.employee` (`id`);
 
-ALTER TABLE `workpermit_details` ADD FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
+ALTER TABLE `employeeproduct.workpermit_details` ADD FOREIGN KEY (`employee_id`) REFERENCES `employeeproduct.employee` (`id`);
 
-ALTER TABLE `workpermit_document_details` ADD FOREIGN KEY (`workpermit_number`) REFERENCES `workpermit_details` (`workpermit_number`);
+ALTER TABLE `employeeproduct.workpermit_document_details` ADD FOREIGN KEY (`workpermit_number`) REFERENCES `employeeproduct.workpermit_details` (`workpermit_number`);
 
-ALTER TABLE `payslip_document_details` ADD FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
+ALTER TABLE `employeeproduct.payslip_document_details` ADD FOREIGN KEY (`employee_id`) REFERENCES `employeeproduct.employee` (`id`);
 
-ALTER TABLE `passport_details` ADD FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
+ALTER TABLE `employeeproduct.passport_details` ADD FOREIGN KEY (`employee_id`) REFERENCES `employeeproduct.employee` (`id`);
 
-ALTER TABLE `family_details` ADD FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
+ALTER TABLE `employeeproduct.family_details` ADD FOREIGN KEY (`employee_id`) REFERENCES `employeeproduct.employee` (`id`);
 
 -- insert Queries
 

@@ -17,28 +17,22 @@ div.col-md-4{
 	</style>
     <!-- Font Awesome Icons -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
-
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
     <!-- Theme CSS - Includes Bootstrap -->
-
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
     <link href="css/creative.min.css" rel="stylesheet">
-
     <title>mProduct</title>
 </head>
 <header>
@@ -58,66 +52,64 @@ div.col-md-4{
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <label for="validationDefault01">First name *</label>
-                        <input type="text" class="form-control" id="validationDefault01" value="" required>
+                        <label for="fName">First name *</label>
+                        <input type="text" class="form-control" id="fName" value="" required>
                     </div>
                     <div class="mt-5">
-                        <label for="validationDefault02">Last name *</label>
-                        <input type="text" class="form-control" id="validationDefault02" value="" required>
+                        <label for="lName">Last name *</label>
+                        <input type="text" class="form-control" id="lName" value="" required>
                     </div>
                     <div class="mt-5">
-                        <label for="validationDefaultUsername">CompanyName *</label>
-                        <input type="text" class="form-control" id="validationDefault02" value="" required>
+                        <label for="cName">CompanyName *</label>
+                        <input type="text" class="form-control" id="cName" value="" required>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <label for="validationDefaultUsername">Email *</label>
+                        <label for="email">Email *</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend2">@</span>
                             </div>
-                            <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+                            <input type="text" class="form-control" id="email"  aria-describedby="inputGroupPrepend2" required>
 
                         </div>
                 </div>
                     <div class="mt-5">
 
-                            <label for="validationDefault03">City *</label>
-                            <input type="text" class="form-control" id="validationDefault03" required>
+                            <label for="city">City *</label>
+                            <input type="text" class="form-control" id="city" required>
                        </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-
-                            <label for="validationDefault03">State *</label>
-                            <input type="text" class="form-control" id="validationDefault03" required>
+                            <label for="pwd">Password *</label>
+                            <input type="password" class="form-control" id="pwd" required>
                         </div>
                     <div class="mt-5">
-                            <label for="validationDefault05">Country *</label>
-                            <input type="text" class="form-control" id="validationDefault05" required>
+                            <label for="country">Country *</label>
+                            <input type="text" class="form-control" id="country" required>
                         </div>
                 </div>
                 </div>
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <label class="form-check-label" for="invalidCheck2">
-
+                        <label class="form-check-label" >
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label class="form-check-label" for="invalidCheck2">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                            <label class="form-check-label" for="invalidCheck2">
+                        <label class="form-check-label" for="terms">
+                            <input class="form-check-input" type="checkbox" value="" id="terms" required>
+                            <label class="form-check-label" for="terms">
                                 Agree to terms and conditions
                             </label>
                         </label>
                     </div>
                     <div class="mt-5">
 
-                        <a href="adminHome.html" class="btn btn-primary">SignUp</a>
+                        <a class="btn btn-primary" id="signup" href="#">SignUp</a>
                         <a href="index.html" class="btn btn-primary">Cancel</a>
                     </div>
 
@@ -125,5 +117,49 @@ div.col-md-4{
             </div>      </div>
     </section>
 </form>
+<script>
+    $(document).ready(function(){
+  $("#signup").click(function(){
+ //  alert($("#fName").val()+""+$("#lName").val()+""+$("#cName").val()+""+$("#city").val()+""+$("#pwd").val()+""+$("#country").val()+""+$("#email").val());
+var fname = $("#fName").val();
+var lname =$("#lName").val();
+var pwd =$("#pwd").val();
+var cname =$("#cName").val();
+var country =$("#country").val();
+var email = $("#email").val();
+var city = $("#city").val();
+
+if(CheckStrNull(fname) && CheckStrNull(lname) && CheckStrNull(pwd) && CheckStrNull(cname) && CheckStrNull(country) && CheckStrNull(email)){
+var data = "{\"active\": 0,\"addressLineOne\": \"string\",\"addressLineTwo\": \"string\",\"city\":\""+city+"\",\"companyName\":\""+cname+"\",\"contactNumber\": \"string\",\"country\":  \""+country+"\",\"emailId\": \""+email+"\",\"employeeDetails\": {\"addressLine1\": \"string\",\"addressLine2\": \"string\",\"city\": \"string\",\"contactNumber\": \"string\",\"country\": \"string\",\"dateOfBirth\": \"2020-03-07\",\"emailId\": \"string\",\"firstName\": \""+fname+"\",\"lastName\":\""+lname+"\",\"sex\": \"string\",\"state\": \"string\",\"updatedBy\":\""+ fname+"\"},\"password\":\""+pwd+"\",\"sizeOfTheCompany\": 0,\"state\": \"string\"}";
+
+$.ajax({
+    type: "POST",
+    url: "/EProduct/companysignup",
+    // The key needs to match your method's input parameter (case-sensitive).
+    data: data,
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function(sdata){
+    alert("Success"+sdata);
+    window.location.href = "adminHome.html";
+    },
+    error: function(errMsg) {
+       // alert("error");
+    }
+});
+}else{
+ alert("fill Mandatory data");
+}
+});
+});
+function CheckStrNull(str){
+    if(str == "" || str == null || str == undefined || str == "undefined"){
+    return false;
+    }
+    return true;
+}
+
+
+</script>
 </body>
 </html>
