@@ -13,12 +13,12 @@ public class EmployeeProductService {
 	private CompanySignupDetailsInterface companySignupDetailsInterface;
 	
 	/**
-	 * method to save the squadDetails in DB
-	 * @param squadDetails
+	 * method to save the CompanyDetails in DB
+	 * @param companyDetails
 	 */
-	public void signUpCompanyDetails(CompanyDetails companyDetails){		
+	public CompanyDetails signUpCompanyDetails(CompanyDetails companyDetails){		
 				
-		companySignupDetailsInterface.save(companyDetails);
+		return companySignupDetailsInterface.save(companyDetails);
 	}
 	
 }
