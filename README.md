@@ -8,11 +8,10 @@ Should support web/android/ios
 
 Stack:
 Java 8
-Spring Boot 
+Spring Boo 
 Spring Data
 MYSQL
-Flutter Framework
-Dart
+Angular 8
 
 
 Docker support for mysql : https://dev.mysql.com/doc/mysql-linuxunix-excerpt/5.7/en/docker-mysql-getting-started.html#docker-connecting-within-container
