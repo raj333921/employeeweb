@@ -1,0 +1,9 @@
+.createButton
+{
+    border: 1px solid green;
+}
+.clearButton
+{
+    margin-left: 5px;
+    border: 1px solid red;
+}

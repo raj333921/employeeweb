@@ -1,0 +1,82 @@
+
+<header>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="signup.html" class="navbar-brand d-flex align-items-center">
+        <strong>mProduct</strong>
+      </a>
+    </div>
+  </div>
+</header>
+<section class="page-section " id="services">
+  <div class="container">
+    <h2 class="text-center mt-0">Sign Up</h2>
+    <hr class="divider my-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="mt-5">
+          <label for="fName">First name *</label>
+          <input type="text" class="form-control" id="fName" value="" required>
+        </div>
+        <div class="mt-5">
+          <label for="lName">Last name *</label>
+          <input type="text" class="form-control" id="lName" value="" required>
+        </div>
+        <div class="mt-5">
+          <label for="cName">CompanyName *</label>
+          <input type="text" class="form-control" id="cName" value="" required>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="mt-5">
+          <label for="email">Email *</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupPrepend2">@</span>
+            </div>
+            <input type="text" class="form-control" id="email"  aria-describedby="inputGroupPrepend2" required>
+
+          </div>
+        </div>
+        <div class="mt-5">
+
+          <label for="city">City *</label>
+          <input type="text" class="form-control" id="city" required>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="mt-5">
+          <label for="pwd">Password *</label>
+          <input type="password" class="form-control" id="pwd" required>
+        </div>
+        <div class="mt-5">
+          <label for="country">Country *</label>
+          <input type="text" class="form-control" id="country" required>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="mt-5">
+          <label class="form-check-label" >
+          </label>
+        </div>
+        <div class="mt-5">
+          <label class="form-check-label" for="terms">
+            <input class="form-check-input" type="checkbox" value="" id="terms" required>
+            <label class="form-check-label" for="terms">
+              Agree to terms and conditions
+            </label>
+          </label>
+        </div>
+        <div class="mt-5">
+
+          <a class="btn btn-primary" id="signup" href="#">SignUp</a>
+          <a routerLink = "/home" routerLinkActive="active" class="btn btn-primary">Cancel</a>
+        </div>
+
+      </div>
+    </div></div>
+</section>
+
