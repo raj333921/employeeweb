@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { Router } from '@angular/router';
 import { LogonComponent } from './logon/logon.component';
 import { BaseComponent } from './base/base.component';
+import {FormsModule} from "@angular/forms";
+import { EhomeComponent } from './ehome/ehome.component';
 
 
 
@@ -17,13 +19,15 @@ import { BaseComponent } from './base/base.component';
     AppComponent,
     SignupComponent,
     LogonComponent,
-    BaseComponent
+    BaseComponent,
+    EhomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

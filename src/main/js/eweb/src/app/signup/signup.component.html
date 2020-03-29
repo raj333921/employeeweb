@@ -16,15 +16,15 @@
       <div class="col-lg-3 col-md-6 text-center">
         <div class="mt-5">
           <label for="fName">First name *</label>
-          <input type="text" class="form-control" id="fName" value="" required>
+          <input type="text" class="form-control" [(ngModel)]= "company.employeeDetails.firstName" id="fName" required>
         </div>
         <div class="mt-5">
           <label for="lName">Last name *</label>
-          <input type="text" class="form-control" id="lName" value="" required>
+          <input type="text" class="form-control" [(ngModel)]= "company.employeeDetails.lastName" id="lName" required>
         </div>
         <div class="mt-5">
           <label for="cName">CompanyName *</label>
-          <input type="text" class="form-control" id="cName" value="" required>
+          <input type="text" class="form-control" [(ngModel)]= "company.companyName" id="cName" required>
         </div>
       </div>
 
@@ -35,24 +35,24 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroupPrepend2">@</span>
             </div>
-            <input type="text" class="form-control" id="email"  aria-describedby="inputGroupPrepend2" required>
+            <input type="text" class="form-control" id="email" [(ngModel)]= "company.emailId" aria-describedby="inputGroupPrepend2" required>
 
           </div>
         </div>
         <div class="mt-5">
 
           <label for="city">City *</label>
-          <input type="text" class="form-control" id="city" required>
+          <input type="text" class="form-control" id="city" [(ngModel)]= "company.city" required>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 text-center">
         <div class="mt-5">
           <label for="pwd">Password *</label>
-          <input type="password" class="form-control" id="pwd" required>
+          <input type="password" class="form-control" id="pwd" [(ngModel)]= "company.password" required>
         </div>
         <div class="mt-5">
           <label for="country">Country *</label>
-          <input type="text" class="form-control" id="country" required>
+          <input type="text" class="form-control" [(ngModel)]= "company.country" id="country" required>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
         </div>
         <div class="mt-5">
 
-          <a class="btn btn-primary" id="signup" href="#">SignUp</a>
+          <a class="btn btn-primary" id="signup" (click)="onSubmit()">SignUp</a>
           <a routerLink = "/home" routerLinkActive="active" class="btn btn-primary">Cancel</a>
         </div>
 

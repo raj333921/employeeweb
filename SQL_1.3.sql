@@ -1,5 +1,5 @@
 CREATE DATABASE employeeproduct;
-CREATE TABLE `employeeproduct.users` (
+CREATE TABLE employeeproduct.users (
   `user_name` varchar(255) PRIMARY KEY,
   `first_name` varchar(255),
   `last_name` varchar(255),
@@ -11,7 +11,7 @@ CREATE TABLE `employeeproduct.users` (
   `active` int
 );
 
-CREATE TABLE `employeeproduct.employee` (
+CREATE TABLE employeeproduct.employee (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `first_name` varchar(255),
   `last_name` varchar(255),
@@ -110,7 +110,7 @@ ALTER TABLE employeeproduct.employee ADD FOREIGN KEY (`company_id`) REFERENCES e
 
 ALTER TABLE employeeproduct.workpermit_details ADD FOREIGN KEY (`employee_id`) REFERENCES employeeproduct.employee (`id`);
 
-ALTER TABLE employeeproduct.workpermit_document_details` ADD FOREIGN KEY (`workpermit_number`) REFERENCES employeeproduct.workpermit_details (`workpermit_number`);
+ALTER TABLE employeeproduct.workpermit_document_details ADD FOREIGN KEY (`workpermit_number`) REFERENCES employeeproduct.workpermit_details (`workpermit_number`);
 
 ALTER TABLE employeeproduct.payslip_details ADD FOREIGN KEY (`employee_id`) REFERENCES employeeproduct.employee (`id`);
 

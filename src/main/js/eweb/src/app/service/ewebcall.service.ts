@@ -3,24 +3,21 @@ import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+providedIn: 'root'
 })
-export class SignUpService {
+export class EwebcallService {
+
 private actionUrl: string;
 constructor(private http: HttpClient) {
     this.actionUrl = `http://localhost:8080/EProduct/success`;
   }
-  /*initSources() : Promise <Employee> {
-    return this.http.get(this.actionUrl).toPromise()
-      .then(response => response as Employee);
-  }*/
 
+  loginUser(login: Object): Observable<Object>{
+    return this.http.post('http://localhost:8080/EProduct/loginUser',login);
+  }
 
-  companySignup(company: Object): Observable<Object> {
+  createCompany(company: Object): Observable<Object> {
     return this.http.post(`http://localhost:8080/EProduct/companysignup`, company);
   }
 
-
-
 }
-

@@ -3,12 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { LogonComponent } from './logon/logon.component';
 import { BaseComponent } from './base/base.component';
 import { SignupComponent } from './signup/signup.component';
+import { EhomeComponent } from './ehome/ehome.component';
+
 
 const routes: Routes = [
  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'sign', component: SignupComponent },
   { path: 'logon', component: LogonComponent },
-  { path: 'home', component: BaseComponent }
+  { path: 'home', component: BaseComponent },
+{ path: 'ehome', component: EhomeComponent }
 ];
 
 @NgModule({

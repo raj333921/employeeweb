@@ -17,11 +17,11 @@
       <div class="col-lg-3 col-md-6 text-center">
         <div class="mt-5">
           <label for="uname" class="">Email address</label>
-          <input type="email" id="uname" class="form-control" placeholder="Email address" value="srila1990@gmail.com" required autofocus>
+          <input type="email" id="uname" class="form-control" placeholder="Email address" [(ngModel)]= "logon.userName" value="raj333921@gmail.com" required autofocus>
         </div>
         <div class="mt-5">
           <label for="pwd" class="">Password</label>
-          <input type="password" id="pwd" class="form-control" placeholder="Password" required value="RAJ@333921">
+          <input type="password" id="pwd" class="form-control" placeholder="Password" [(ngModel)]= "logon.password" required value="Raj@333921">
         </div>
         <div class="mt-5">
           <div class="checkbox mb-3">
@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="mt-5">
-          <a href="#" id="signin" class="btn btn-primary">Sign In</a>
+          <a id="signin" class="btn btn-primary" (click)="onSubmit()">Sign In</a>
           <a routerLink = "/home" routerLinkActive="active" class="btn btn-primary">Cancel</a>
         </div>
       </div>

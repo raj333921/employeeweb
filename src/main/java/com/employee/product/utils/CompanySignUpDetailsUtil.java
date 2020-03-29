@@ -2,6 +2,7 @@ package com.employee.product.utils;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Date;
 import java.util.Set;
 
 import org.springframework.mail.MailSender;
@@ -34,7 +35,7 @@ public class CompanySignUpDetailsUtil {
 		users.setPassword(companyDetailsDto.getPassword());
 		users.setRole("Admin");
 		users.setActive(1);
-
+		users.setCreatedAt(new Date());
 		companyDetailsMapping(companyDetailsDto, companyDetails);
 
 		users.setCompanyDetails(companyDetails);
