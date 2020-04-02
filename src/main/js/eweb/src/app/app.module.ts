@@ -11,7 +11,7 @@ import { LogonComponent } from './logon/logon.component';
 import { BaseComponent } from './base/base.component';
 import {FormsModule} from "@angular/forms";
 import { EhomeComponent } from './ehome/ehome.component';
-
+import { EmployeeComponent } from './ehome/employee/employee.component';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import { EhomeComponent } from './ehome/ehome.component';
     SignupComponent,
     LogonComponent,
     BaseComponent,
-    EhomeComponent
+    EhomeComponent,
+EmployeeComponent
   ],
   imports: [
     BrowserModule,

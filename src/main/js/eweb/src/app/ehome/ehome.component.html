@@ -1,24 +1,15 @@
 <div class="navbar navbar-dark bg-dark shadow-sm">
   <div class="container d-flex justify-content-between">
-    <a href="adminHome.html" class="navbar-brand d-flex align-items-center">
-      <strong>CompanyName</strong>
+    <a routerLink = "/ehome" routerLinkActive="active" class="navbar-brand d-flex align-items-center">
+      <strong>{{ehomeDetails.companyName}}</strong>
     </a>
-    <div class="dropdown show">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">
-		</span>
-      </button>
-
-      <!--button data-toggle="dropdown" aria-expanded="true" aria-haspopup="true" class="btn btn-link nav-link dropdown-toggle nav-user arrow-none mr-0">
-<span class="account-user-avatar">
-<img src="" class="rounded-circle" alt="user" -->
-      <div tabindex="-1" role="menu" aria-hidden="false" class="dropdown-menu-animated topbar-dropdown-menu profile-dropdown dropdown-menu dropdown-menu-right show" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(8px, 70px, 0px);">
-        <div>
-          <div class="dropdown-header noti-title">
-            <h6 class="text-overflow m-0">Welcome User!</h6></div>
-          <a class="dropdown-item notify-item" href="Loging.html">
-            <span>Logout</span></a>
-        </div>
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ehomeDetails.userName}}
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Profile</a>
+        <a class="dropdown-item" routerLink = "/logon" routerLinkActive="active">LogOut</a>
       </div>
     </div>
   </div>
@@ -30,7 +21,7 @@
       <div class="card-body">
         <h5 class="card-title">Employee Details</h5>
         <p class="card-text">As an admin You can view/add/modify/delete employees from company </p>
-        <a href="listEmp.html" class="btn btn-primary">Consult</a>
+        <a routerLink = "/employee" routerLinkActive="active" class="btn btn-primary">Consult</a>
       </div>
     </div>
     <div class="card col-sm" style="width: 25rem;">

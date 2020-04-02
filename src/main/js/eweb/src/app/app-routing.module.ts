@@ -4,14 +4,15 @@ import { LogonComponent } from './logon/logon.component';
 import { BaseComponent } from './base/base.component';
 import { SignupComponent } from './signup/signup.component';
 import { EhomeComponent } from './ehome/ehome.component';
-
+import { EmployeeComponent } from './ehome/employee/employee.component';
 
 const routes: Routes = [
  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'sign', component: SignupComponent },
   { path: 'logon', component: LogonComponent },
   { path: 'home', component: BaseComponent },
-{ path: 'ehome', component: EhomeComponent }
+  { path: 'ehome', component: EhomeComponent },
+  { path: 'employee', component: EmployeeComponent }
 ];
 
 @NgModule({
