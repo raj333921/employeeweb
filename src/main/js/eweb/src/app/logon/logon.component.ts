@@ -13,7 +13,6 @@ styleUrls: ['./logon.component.css']
 export class LogonComponent implements OnInit {
 logon: LogonDetails = new LogonDetails();
 eHomeDetails: EhomeDetails = new EhomeDetails();
-@Output() ehomeDet = new EventEmitter<EhomeDetails>();
 submitted = false;
 constructor(private ewebService: EwebcallService,private router: Router,private storageService: StorageService) { }
   ngOnInit() { }

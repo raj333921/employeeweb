@@ -1,19 +1,4 @@
-<div class="navbar navbar-dark bg-dark shadow-sm">
-  <div class="container d-flex justify-content-between">
-    <a routerLink = "/ehome" routerLinkActive="active" class="navbar-brand d-flex align-items-center">
-      <strong>{{ehomeDetails.companyName}}</strong>
-    </a>
-    <div class="dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ehomeDetails.userName}}
-      </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Profile</a>
-        <a class="dropdown-item" routerLink = "/logon" routerLinkActive="active">LogOut</a>
-      </div>
-    </div>
-  </div>
-</div>
+<app-eheader></app-eheader>
 <br>
 <div class="container">
   <div class="row">

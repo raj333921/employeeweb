@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { EhomeDetails } from '../ehome/ehomeDetails';
 
+import { EmpRes } from '../ehome/employee/empRes';
+import { EmpDetails } from '../ehome/employee/empDetails';
+
 @Injectable({
 providedIn: 'root'
 })
@@ -24,5 +27,10 @@ constructor(private http: HttpClient) {
     return this.http.post(`http://localhost:8080/EProduct/companysignup`, company);
   }
 
+ employeeList(empDetails : EmpDetails): Promise<EmpRes>{
+
+      return this.http.post(`http://localhost:8080/EProduct/retrieveEmployeeList`, empDetails).toPromise()
+          .then(response => response as EmpRes);
+    }
 
 }
