@@ -1,57 +1,176 @@
 <app-eheader></app-eheader>
 <br>
-<div>
-<ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" class="nav-item active">
-    <a href="#1" aria-controls="1" role="tab" data-toggle="tab" class="nav-link">Employee Details</a>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="ed-tab" data-toggle="tab" href="#ed" role="tab" aria-controls="ed" aria-selected="true">Employee Details</a>
   </li>
-  <li role="presentation" class="nav-item">
-    <a class="nav-link" href="#2" aria-controls="2" role="tab" data-toggle="tab">Work Permit Details</a>
+  <li class="nav-item">
+    <a class="nav-link" id="wpd-tab" data-toggle="tab" href="#wpd" role="tab" aria-controls="wpd" aria-selected="false">Work Permit Details</a>
   </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" href="#3" aria-controls="3" role="tab" data-toggle="tab">Passport Details</a>
+  <li class="nav-item">
+    <a class="nav-link" id="pd-tab" data-toggle="tab" href="#pd" role="tab" aria-controls="pd" aria-selected="false">Passport Details</a>
   </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" href="#4" aria-controls="4" role="tab" data-toggle="tab">Family Details</a>
+  <li class="nav-item">
+    <a class="nav-link" id="fd-tab" data-toggle="tab" href="#fd" role="tab" aria-controls="fd" aria-selected="false">Family Details</a>
   </li>
 </ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="ed" role="tabpanel" aria-labelledby="ed-tab"><div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault01">First name *</label>
+      <input type="text" class="form-control" id="validationDefault01" [(ngModel)]= "empDet.employeeDetailsRequestDto.firstName" value="" required>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault02">Last name *</label>
+      <input type="text" class="form-control" id="validationDefault02" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.lastName" required>
+    </div>
 
-<div class="tab-content">
-  <div role="tabpanel" class="tab-pane" id="1">1</div>
-  <div role="tabpanel" class="tab-pane" id="2">2</div>
-  <div role="tabpanel" class="tab-pane" id="3">3</div>
-  <div role="tabpanel" class="tab-pane" id="4">4</div>
-</div>
-</div>
-
-<div>
-
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab" data-toggle="tab">Home</a></li>
-    <li role="presentation"><a href="#2" aria-controls="2" role="tab" data-toggle="tab">Profile</a></li>
-    <li role="presentation"><a href="#3" aria-controls="3" role="tab" data-toggle="tab">Messages</a></li>
-    <li role="presentation"><a href="#4" aria-controls="4" role="tab" data-toggle="tab">Settings</a></li>
-  </ul>
-
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation"><a href="#5" aria-controls="5" role="tab" data-toggle="tab">Home</a></li>
-    <li role="presentation"><a href="#6" aria-controls="6" role="tab" data-toggle="tab">Profile</a></li>
-    <li role="presentation"><a href="#7" aria-controls="7" role="tab" data-toggle="tab">Messages</a></li>
-    <li role="presentation"><a href="#8" aria-controls="8" role="tab" data-toggle="tab">Settings</a></li>
-  </ul>
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane" id="1">1</div>
-    <div role="tabpanel" class="tab-pane" id="2">2</div>
-    <div role="tabpanel" class="tab-pane" id="3">3</div>
-    <div role="tabpanel" class="tab-pane" id="4">4</div>
-    <div role="tabpanel" class="tab-pane" id="5">5</div>
-    <div role="tabpanel" class="tab-pane" id="6">6</div>
-    <div role="tabpanel" class="tab-pane" id="7">7</div>
-    <div role="tabpanel" class="tab-pane" id="8">8</div>
   </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationDefaultUsername">Email *</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+          </div>
+          <input type="text" class="form-control" id="validationDefaultUsername" [(ngModel)]= "empDet.employeeDetailsRequestDto.emailId" aria-describedby="inputGroupPrepend2" required>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault01">Date of Birth *</label>
+        <input class="datepicker" data-date-format="mm/dd/yyyy" class="form-control" id="validationDefault01" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.dateOfBirth" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Sex *</label>
+        <select class="custom-select" id="validationDefault04" [(ngModel)]= "empDet.employeeDetailsRequestDto.sex" required>
+          <option selected disabled value="">Choose...</option>
+          <option value="m">Male</option>
+          <option value="f">Female</option>
+          <option value="o">Others</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault01">Address 1 *</label>
+        <input type="text" class="form-control" id="validationDefault01" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.addressLine1" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Address 2</label>
+        <input type="text" class="form-control" id="validationDefault02" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.addressLine2" required>
+      </div>
+    </div>
 
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault03">City *</label>
+        <input type="text" class="form-control" id="validationDefault03" [(ngModel)]= "empDet.employeeDetailsRequestDto.city" required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault03">State *</label>
+        <input type="text" class="form-control" id="validationDefault03" [(ngModel)]= "empDet.employeeDetailsRequestDto.state" required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault05">Country *</label>
+        <input type="text" class="form-control" id="validationDefault05" [(ngModel)]= "empDet.employeeDetailsRequestDto.country" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault03">Mobile Number *</label>
+        <input type="text" class="form-control" id="validationDefault03" [(ngModel)]= "empDet.employeeDetailsRequestDto.contactNumber" required>
+      </div>
+    </div>
+    <!--<div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+        <label class="form-check-label" for="invalidCheck2">
+          Agree to terms and conditions
+        </label>
+      </div>
+    </div>-->
+  </div>
+  <div class="tab-pane fade" id="wpd" role="tabpanel" aria-labelledby="wpd-tab"><div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault03">WP Number *</label>
+      <input type="text" class="form-control" id="validationDefault03" required>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault03">WP Validity *</label>
+      <input type="text" class="form-control" id="validationDefault03" required>
+    </div>
+  </div>
+    <div>
+      <label for="validationDefault19">WP Image </label>
+      <button type="button" class="form-control" id="validationDefault19" class="btn btn-outline-warning">Upload</button>
+    </div>
+    <!--<div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+        <label class="form-check-label" for="invalidCheck2">
+          Agree to terms and conditions
+        </label>
+      </div>
+    </div>-->
+  </div>
+  <div class="tab-pane fade" id="pd" role="tabpanel" aria-labelledby="pd-tab">
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault03">Passport Number *</label>
+        <input type="text" class="form-control" id="validationDefault03" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault03">Passport Start Date *</label>
+        <input type="text" class="form-control" id="validationDefault03" required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault03">Passport End Date *</label>
+        <input type="text" class="form-control" id="validationDefault03" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault03">Issued at *</label>
+        <input type="text" class="form-control" id="validationDefault03" required>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="fd" role="tabpanel" aria-labelledby="fd-tab">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault01">First name *</label>
+        <input type="text" class="form-control" id="validationDefault01" value="" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Last name *</label>
+        <input type="text" class="form-control" id="validationDefault02" value="" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Sex *</label>
+        <select class="custom-select" id="validationDefault04" required>
+          <option selected disabled value="">Choose...</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Others</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Relation *</label>
+        <select class="custom-select" id="validationDefault04" required>
+          <option selected disabled value="">Choose...</option>
+          <option>Spouse</option>
+          <option>Son</option>
+          <option>Daughter</option>
+        </select>
+      </div>
+    </div>
+  </div>
 </div>
+<a id="saveDa" class="btn btn-primary" (click)="onSubmit()" style="margin:10px;">Save</a>
+<a routerLink = "/employee" routerLinkActive="active" class="btn btn-secondary" style="margin:5px">Cancel</a>

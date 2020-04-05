@@ -1,14 +1,12 @@
-
-<header>
+<div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
-      <a href="signup.html" class="navbar-brand d-flex align-items-center">
+      <a routerLink = "/sign" routerLinkActive="active" class="navbar-brand d-flex align-items-center">
         <strong>mProduct</strong>
       </a>
     </div>
   </div>
-</header>
-<section class="page-section " id="services">
+<section class="page-section">
   <div class="container">
     <h2 class="text-center mt-0">Sign Up</h2>
     <hr class="divider my-4">
@@ -27,7 +25,6 @@
           <input type="text" class="form-control" [(ngModel)]= "company.companyName" id="cName" required>
         </div>
       </div>
-
       <div class="col-lg-3 col-md-6 text-center">
         <div class="mt-5">
           <label for="email">Email *</label>
@@ -36,11 +33,9 @@
               <span class="input-group-text" id="inputGroupPrepend2">@</span>
             </div>
             <input type="text" class="form-control" id="email" [(ngModel)]= "company.emailId" aria-describedby="inputGroupPrepend2" required>
-
           </div>
         </div>
         <div class="mt-5">
-
           <label for="city">City *</label>
           <input type="text" class="form-control" id="city" [(ngModel)]= "company.city" required>
         </div>
@@ -71,12 +66,11 @@
           </label>
         </div>
         <div class="mt-5">
-
-          <a class="btn btn-primary" id="signup" (click)="onSubmit()">SignUp</a>
-          <a routerLink = "/home" routerLinkActive="active" class="btn btn-primary">Cancel</a>
+          <a class="btn btn-primary" id="signup" (click)="onSubmit()" style="margin:10px">SignUp</a>
+          <a routerLink = "/home" routerLinkActive="active" class="btn btn-secondary">Cancel</a>
         </div>
 
       </div>
     </div></div>
 </section>
-
+</div>

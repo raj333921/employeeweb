@@ -28,9 +28,12 @@ constructor(private http: HttpClient) {
   }
 
  employeeList(empDetails : EmpDetails): Promise<EmpRes>{
-
       return this.http.post(`http://localhost:8080/EProduct/retrieveEmployeeList`, empDetails).toPromise()
           .then(response => response as EmpRes);
     }
+
+addModifyEmp(company: Object): Observable<Object> {
+    return this.http.post(`http://localhost:8080/EProduct/addModifyEmployee`, company);
+  }
 
 }

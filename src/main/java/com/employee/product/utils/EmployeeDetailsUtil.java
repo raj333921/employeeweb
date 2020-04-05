@@ -24,9 +24,7 @@ public class EmployeeDetailsUtil {
 		List<EmployeeDetailsResponseDto> employeeDetailsResponseDtoList = new ArrayList<EmployeeDetailsResponseDto>();
 
 		for (EmployeeDetails employeeDetails : employeeDetailsList) {
-
 			EmployeeDetailsResponseDto employeeDetailsResponseDto = new EmployeeDetailsResponseDto();
-
 			employeeDetailsResponseDto.setAddressLine1(employeeDetails.getAddressLine1());
 			employeeDetailsResponseDto.setAddressLine2(employeeDetails.getAddressLine2());
 			employeeDetailsResponseDto.setCity(employeeDetails.getCity());
@@ -96,23 +94,18 @@ public class EmployeeDetailsUtil {
 			employeeDetailsResponseDto.setEmployeeFamilyDetailsResponseDto(employeeFamilyDetailsResponseDtoList);
 
 			// Mapping Payslip Details
-
-			Set<EmployeePaySlipDetails> employeePaySlipDetailsList = employeeDetails.getEmployeePaySlipDetails();
-
-			List<EmployeePaySlipDocumentDetailsResponseDto> employeePaySlipDocumentDetailsResponseDtoList = new ArrayList<EmployeePaySlipDocumentDetailsResponseDto>();
-
-			for (EmployeePaySlipDetails employeePaySlipDetails : employeePaySlipDetailsList) {
-
-				EmployeePaySlipDocumentDetailsResponseDto employeePaySlipDocumentDetailsResponseDto = new EmployeePaySlipDocumentDetailsResponseDto();
-
-				employeePaySlipDocumentDetailsResponseDto.setDocumentName(employeePaySlipDetails.getPaySlipMonth());
-				employeePaySlipDocumentDetailsResponseDto.setDocumentNumber(employeePaySlipDetails.getPaySlipNumber());
-				employeePaySlipDocumentDetailsResponseDtoList.add(employeePaySlipDocumentDetailsResponseDto);
-
+			if( employeeDetails.getEmployeePaySlipDetails() != null) {
+				Set<EmployeePaySlipDetails> employeePaySlipDetailsList = employeeDetails.getEmployeePaySlipDetails();
+				List<EmployeePaySlipDocumentDetailsResponseDto> employeePaySlipDocumentDetailsResponseDtoList = new ArrayList<EmployeePaySlipDocumentDetailsResponseDto>();
+				for (EmployeePaySlipDetails employeePaySlipDetails : employeePaySlipDetailsList) {
+					EmployeePaySlipDocumentDetailsResponseDto employeePaySlipDocumentDetailsResponseDto = new EmployeePaySlipDocumentDetailsResponseDto();
+					employeePaySlipDocumentDetailsResponseDto.setDocumentName(employeePaySlipDetails.getPaySlipMonth());
+					employeePaySlipDocumentDetailsResponseDto.setDocumentNumber(employeePaySlipDetails.getPaySlipNumber());
+					employeePaySlipDocumentDetailsResponseDtoList.add(employeePaySlipDocumentDetailsResponseDto);
+				}
+				employeeDetailsResponseDto
+						.setEmployeePaySlipDocumentDetailsResponseDto(employeePaySlipDocumentDetailsResponseDtoList);
 			}
-			employeeDetailsResponseDto
-					.setEmployeePaySlipDocumentDetailsResponseDto(employeePaySlipDocumentDetailsResponseDtoList);
-
 			employeeDetailsResponseDtoList.add(employeeDetailsResponseDto);
 		}
 

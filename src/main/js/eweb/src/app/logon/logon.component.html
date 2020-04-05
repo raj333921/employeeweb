@@ -1,14 +1,13 @@
 <header>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
-      <a href="Loging.html" class="navbar-brand d-flex align-items-center">
+      <a routerLink = "/logon" routerLinkActive="active" class="navbar-brand d-flex align-items-center">
         <strong>mProduct</strong>
       </a>
     </div>
   </div>
 </header>
 <body class="text-center">
-
 <section class="page-section" id="services">
   <div class="container">
     <h2 class="text-center mt-0">Sign in</h2>
@@ -23,16 +22,19 @@
           <label for="pwd" class="">Password</label>
           <input type="password" id="pwd" class="form-control" placeholder="Password" [(ngModel)]= "logon.password" required value="Raj@333921">
         </div>
-        <div class="mt-5">
+        <!--<div class="mt-5">
           <div class="checkbox mb-3">
             <label>
               <input type="checkbox" value="remember-me"> Remember me
             </label>
           </div>
-        </div>
+        </div>-->
         <div class="mt-5">
-          <a id="signin" class="btn btn-primary" (click)="onSubmit()">Sign In</a>
-          <a routerLink = "/home" routerLinkActive="active" class="btn btn-primary">Cancel</a>
+          <div>
+          <a id="signin" class="btn btn-primary" (click)="onSubmit()" style="margin:10px;">Sign In</a>
+            <a routerLink = "/home" routerLinkActive="active" class="btn btn-secondary">Cancel</a>
+          </div>
+
         </div>
       </div>
     </div>
