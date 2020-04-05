@@ -1,16 +1,11 @@
 package com.employee.product.utils;
 
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
-
-//import org.springframework.mail.MailSender;
-//import org.springframework.mail.SimpleMailMessage;
-//import org.springframework.mail.javamail.JavaMailSender;
 
 import com.employee.product.companydetails.request.dto.CompanyDetailsRequestDto;
 import com.employee.product.companydetails.response.dto.CompanyDetailsResponseDto;
@@ -38,7 +33,7 @@ public class CompanySignUpDetailsUtil {
 		users.setCreatedAt(new Date());
 		companyDetailsMapping(companyDetailsDto, companyDetails);
 
-		users.setCompanyDetails(companyDetails);
+		 users.setCompanyDetails(companyDetails);
 
 		employeeDetailsMapping(users, companyDetailsDto, companyDetails);
 
@@ -56,7 +51,8 @@ public class CompanySignUpDetailsUtil {
 		companyDetails.setCountry(companyDetailsDto.getCountry());
 		companyDetails.setContactNumber(companyDetailsDto.getContactNumber());
 		companyDetails.setSizeOfTheCompany(companyDetailsDto.getSizeOfTheCompany());
-		companyDetails.setActive(companyDetailsDto.getActive());
+
+
 
 	}
 
@@ -74,7 +70,6 @@ public class CompanySignUpDetailsUtil {
 		employeeDetails.setState(companyDetailsDto.getState());
 		employeeDetails.setCountry(companyDetailsDto.getCountry());
 		employeeDetails.setContactNumber(companyDetailsDto.getContactNumber());
-
 		employeeDetails.setCompanyDetails(companyDetails);
 		employeeDetailsSet.add(employeeDetails);
 
@@ -110,7 +105,7 @@ public class CompanySignUpDetailsUtil {
 	 * }
 	 */
 
-	public static void sendMessage(MailSender mailSender, Users users) {
+	public static void sendMessage(MailSender mailSender,String emailId, String companyName, Users users) {
 		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 
 		StringBuilder result = new StringBuilder();
@@ -122,18 +117,20 @@ public class CompanySignUpDetailsUtil {
 		result.append("Password : " + users.getPassword());
 		result.append(System.lineSeparator());
 
-		result.append("Company Name : " + users.getCompanyDetails().getCompanyName());
+		result.append("Company Name : " + companyName);
 		result.append(System.lineSeparator());
-		result.append("Company Mail Id : " + users.getCompanyDetails().getEmailId());
+		result.append("Company Mail Id : " + emailId);
 		simpleMailMessage.setText(result.toString());
 		simpleMailMessage.setFrom("mproduct113@gmail.com");
-		simpleMailMessage.setTo(users.getCompanyDetails().getEmailId());
+		simpleMailMessage.setTo(emailId);
 		simpleMailMessage.setSubject("SignUp Is Successfull");
 
 		mailSender.send(simpleMailMessage);
 
 	}
-
+	
+	
+	
 	public static CompanyDetailsResponseDto companyDetailsSignUpResponseMapping(
 			CompanyDetailsResponseDto companyDetailsResponseDto) {
 

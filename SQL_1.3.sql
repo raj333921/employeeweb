@@ -1,36 +1,36 @@
 CREATE DATABASE employeeproduct;
 CREATE TABLE employeeproduct.users (
   `user_name` varchar(255) PRIMARY KEY,
-  `first_name` varchar(255),
-  `last_name` varchar(255),
-  `password` varchar(255),
-  `role` varchar(255),
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `country` varchar(255),
-  `company_id` int,
-  `active` int
+    `first_name` varchar(255),
+    `last_name` varchar(255),
+    `password` varchar(255),
+    `role` varchar(255),
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `country` varchar(255),
+    `company_id` int,
+    `active` int
 );
 
 CREATE TABLE employeeproduct.employee (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `first_name` varchar(255),
-  `last_name` varchar(255),
-  `repoting_person` varchar(255),
-  `email_id` varchar(255),
-  `sex` varchar(255),
-  `address1` varchar(255),
-  `address2` varchar(255),
-  `city` varchar(255),
-  `state` varchar(255),
-  `country` varchar(255),
-  `contact_number` varchar(255),
-  `date_of_birth` date,
-  `updated_by` varchar(255),
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `company_id` int,
-  `job_role` varchar(255),
-  `work_location` varchar(255),
-  `department` varchar(255)
+    `first_name` varchar(255),
+    `last_name` varchar(255),
+    `email_id` varchar(255) UNIQUE,
+    `sex` varchar(255),
+    `address1` varchar(255),
+    `address2` varchar(255),
+    `city` varchar(255),
+    `state` varchar(255),
+    `country` varchar(255),
+    `contact_number` varchar(255),
+    `date_of_birth` date,
+    `updated_by` varchar(255),
+    `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `company_id` int,
+    `job_role` varchar(255),
+    `work_location` varchar(255),
+    `department` varchar(255),
+    `reporting_person`  varchar(255)
 );
 
 CREATE TABLE employeeproduct.workpermit_details (
@@ -77,25 +77,25 @@ CREATE TABLE employeeproduct.family_details (
 );
 
 CREATE TABLE employeeproduct.company (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(255) UNIQUE,
-  `email_id` varchar(255),
-  `address1` varchar(255),
-  `address2` varchar(255),
-  `city` varchar(255),
-  `state` varchar(255),
-  `country` varchar(255),
-  `contact_number` varchar(255),
-  `size` int,
-  `active` int
+   `id` int PRIMARY KEY AUTO_INCREMENT,
+    `name` varchar(255) UNIQUE,
+    `email_id` varchar(255),
+    `address1` varchar(255),
+    `address2` varchar(255),
+    `city` varchar(255),
+    `state` varchar(255),
+    `country` varchar(255),
+    `contact_number` varchar(255),
+    `size` int,
+    `active` int
 );
 
 CREATE TABLE employeeproduct.Audit_Trial (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `updated_by` varchar(255),
-  `updated_user` varchar(255),
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_company` varchar(255)
+   `id` int PRIMARY KEY AUTO_INCREMENT,
+    `updated_by` varchar(255),
+    `updated_user` varchar(255),
+    `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `updated_company` varchar(255)
 );
 
 ALTER TABLE employeeproduct.employee

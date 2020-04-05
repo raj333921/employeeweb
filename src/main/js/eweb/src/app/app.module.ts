@@ -11,6 +11,7 @@ import { LogonComponent } from './logon/logon.component';
 import { BaseComponent } from './base/base.component';
 import {FormsModule} from "@angular/forms";
 import { EhomeComponent } from './ehome/ehome.component';
+import { AddemployeeComponent } from './ehome/addemployee/addemployee.component';
 import { EmployeeComponent } from './ehome/employee/employee.component';
 import { EheaderComponent } from './ehome/eheader/eheader.component';
 
@@ -23,7 +24,8 @@ import { EheaderComponent } from './ehome/eheader/eheader.component';
     BaseComponent,
     EhomeComponent,
     EmployeeComponent,
-    EheaderComponent
+    EheaderComponent,
+    AddemployeeComponent
   ],
   imports: [
     BrowserModule,
