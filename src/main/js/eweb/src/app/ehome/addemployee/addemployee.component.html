@@ -14,6 +14,10 @@
     <a class="nav-link" id="fd-tab" data-toggle="tab" href="#fd" role="tab" aria-controls="fd" aria-selected="false">Family Details</a>
   </li>
 </ul>
+<div *ngIf="!isValidEr">
+  <span id="errMsg" style="color:red">Error in calling Service</span>
+  <span id="sucMsg" style="color:green" *ngIf="!isValidSu">Successfully saved all your data !!</span>
+</div>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="ed" role="tabpanel" aria-labelledby="ed-tab"><div class="form-row">
     <div class="col-md-4 mb-3">
@@ -28,23 +32,23 @@
   </div>
     <div class="form-row">
       <div class="col-md-4 mb-3">
-        <label for="validationDefaultUsername">Email *</label>
+        <label for="validationDefault03">Email *</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend2">@</span>
           </div>
-          <input type="text" class="form-control" id="validationDefaultUsername" [(ngModel)]= "empDet.employeeDetailsRequestDto.emailId" aria-describedby="inputGroupPrepend2" required>
+          <input type="text" class="form-control" id="validationDefault03" [(ngModel)]= "empDet.employeeDetailsRequestDto.emailId" aria-describedby="inputGroupPrepend2" required>
         </div>
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefault01">Date of Birth *</label>
-        <input class="datepicker" data-date-format="mm/dd/yyyy" class="form-control" id="validationDefault01" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.dateOfBirth" required>
+        <label for="validationDefault04">Date of Birth *</label>
+        <input class="datepicker" data-date-format="yyyy/mm/dd" class="form-control" id="validationDefault04" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.dateOfBirth" required>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
-        <label for="validationDefault04">Sex *</label>
-        <select class="custom-select" id="validationDefault04" [(ngModel)]= "empDet.employeeDetailsRequestDto.sex" required>
+        <label for="validationDefault05">Sex *</label>
+        <select class="custom-select" id="validationDefault05" [(ngModel)]= "empDet.employeeDetailsRequestDto.sex" required>
           <option selected disabled value="">Choose...</option>
           <option value="m">Male</option>
           <option value="f">Female</option>
@@ -54,33 +58,33 @@
     </div>
     <div class="form-row">
       <div class="col-md-4 mb-3">
-        <label for="validationDefault01">Address 1 *</label>
-        <input type="text" class="form-control" id="validationDefault01" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.addressLine1" required>
+        <label for="validationDefault06">Address 1 *</label>
+        <input type="text" class="form-control" id="validationDefault06" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.addressLine1" required>
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefault02">Address 2</label>
-        <input type="text" class="form-control" id="validationDefault02" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.addressLine2" required>
+        <label for="validationDefault07">Address 2</label>
+        <input type="text" class="form-control" id="validationDefault07" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.addressLine2" required>
       </div>
     </div>
 
     <div class="form-row">
       <div class="col-md-3 mb-3">
-        <label for="validationDefault03">City *</label>
-        <input type="text" class="form-control" id="validationDefault03" [(ngModel)]= "empDet.employeeDetailsRequestDto.city" required>
+        <label for="validationDefault08">City *</label>
+        <input type="text" class="form-control" id="validationDefault08" [(ngModel)]= "empDet.employeeDetailsRequestDto.city" required>
       </div>
       <div class="col-md-3 mb-3">
-        <label for="validationDefault03">State *</label>
-        <input type="text" class="form-control" id="validationDefault03" [(ngModel)]= "empDet.employeeDetailsRequestDto.state" required>
+        <label for="validationDefault09">State *</label>
+        <input type="text" class="form-control" id="validationDefault09" [(ngModel)]= "empDet.employeeDetailsRequestDto.state" required>
       </div>
       <div class="col-md-3 mb-3">
-        <label for="validationDefault05">Country *</label>
-        <input type="text" class="form-control" id="validationDefault05" [(ngModel)]= "empDet.employeeDetailsRequestDto.country" required>
+        <label for="validationDefault10">Country *</label>
+        <input type="text" class="form-control" id="validationDefault10" [(ngModel)]= "empDet.employeeDetailsRequestDto.country" required>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
-        <label for="validationDefault03">Mobile Number *</label>
-        <input type="text" class="form-control" id="validationDefault03" [(ngModel)]= "empDet.employeeDetailsRequestDto.contactNumber" required>
+        <label for="validationDefault11">Mobile Number *</label>
+        <input type="text" class="form-control" id="validationDefault11" [(ngModel)]= "empDet.employeeDetailsRequestDto.contactNumber" required>
       </div>
     </div>
     <!--<div class="form-group">
@@ -94,17 +98,17 @@
   </div>
   <div class="tab-pane fade" id="wpd" role="tabpanel" aria-labelledby="wpd-tab"><div class="form-row">
     <div class="col-md-3 mb-3">
-      <label for="validationDefault03">WP Number *</label>
-      <input type="text" class="form-control" id="validationDefault03" required>
+      <label for="validationDefault12">WP Number *</label>
+      <input type="text" class="form-control" id="validationDefault12" required>
     </div>
     <div class="col-md-3 mb-3">
-      <label for="validationDefault03">WP Validity *</label>
-      <input type="text" class="form-control" id="validationDefault03" required>
+      <label for="validationDefault13">WP Validity *</label>
+      <input type="text" class="form-control" id="validationDefault13" required>
     </div>
   </div>
     <div>
-      <label for="validationDefault19">WP Image </label>
-      <button type="button" class="form-control" id="validationDefault19" class="btn btn-outline-warning">Upload</button>
+      <label for="validationDefault14">WP Image </label>
+      <button type="button" class="form-control" id="validationDefault14" class="btn btn-outline-warning">Upload</button>
     </div>
     <!--<div class="form-group">
       <div class="form-check">
@@ -118,42 +122,42 @@
   <div class="tab-pane fade" id="pd" role="tabpanel" aria-labelledby="pd-tab">
     <div class="form-row">
       <div class="col-md-3 mb-3">
-        <label for="validationDefault03">Passport Number *</label>
-        <input type="text" class="form-control" id="validationDefault03" required>
+        <label for="validationDefault15">Passport Number *</label>
+        <input type="text" class="form-control" id="validationDefault15" required>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
-        <label for="validationDefault03">Passport Start Date *</label>
-        <input type="text" class="form-control" id="validationDefault03" required>
+        <label for="validationDefault16">Passport Start Date *</label>
+        <input type="text" class="form-control" id="validationDefault16" required>
       </div>
       <div class="col-md-3 mb-3">
-        <label for="validationDefault03">Passport End Date *</label>
-        <input type="text" class="form-control" id="validationDefault03" required>
+        <label for="validationDefault17">Passport End Date *</label>
+        <input type="text" class="form-control" id="validationDefault17" required>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
-        <label for="validationDefault03">Issued at *</label>
-        <input type="text" class="form-control" id="validationDefault03" required>
+        <label for="validationDefault18">Issued at *</label>
+        <input type="text" class="form-control" id="validationDefault18" required>
       </div>
     </div>
   </div>
   <div class="tab-pane fade" id="fd" role="tabpanel" aria-labelledby="fd-tab">
     <div class="form-row">
       <div class="col-md-4 mb-3">
-        <label for="validationDefault01">First name *</label>
-        <input type="text" class="form-control" id="validationDefault01" value="" required>
+        <label for="validationDefault19">First name *</label>
+        <input type="text" class="form-control" id="validationDefault19" value="" required>
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefault02">Last name *</label>
-        <input type="text" class="form-control" id="validationDefault02" value="" required>
+        <label for="validationDefault20">Last name *</label>
+        <input type="text" class="form-control" id="validationDefault20" value="" required>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
-        <label for="validationDefault04">Sex *</label>
-        <select class="custom-select" id="validationDefault04" required>
+        <label for="validationDefault21">Sex *</label>
+        <select class="custom-select" id="validationDefault21" required>
           <option selected disabled value="">Choose...</option>
           <option>Male</option>
           <option>Female</option>
@@ -161,8 +165,8 @@
         </select>
       </div>
       <div class="col-md-3 mb-3">
-        <label for="validationDefault04">Relation *</label>
-        <select class="custom-select" id="validationDefault04" required>
+        <label for="validationDefault23">Relation *</label>
+        <select class="custom-select" id="validationDefault23" required>
           <option selected disabled value="">Choose...</option>
           <option>Spouse</option>
           <option>Son</option>

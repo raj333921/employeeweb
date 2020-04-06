@@ -9,13 +9,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./eheader.component.css']
 })
 export class EheaderComponent implements OnInit {
-private ehomeDetails: EhomeDetails = new EhomeDetails();
+ehomeDetails: EhomeDetails = new EhomeDetails();
 
   constructor(private router: Router,private storageService: StorageService) { }
 
   ngOnInit() {
  this.ehomeDetails = this.storageService.getEhomDetails();
-  console.log(this.ehomeDetails);
+  //console.log(this.ehomeDetails);
   }
 
 }
