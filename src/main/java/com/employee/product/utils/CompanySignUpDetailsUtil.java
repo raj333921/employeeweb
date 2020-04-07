@@ -51,8 +51,7 @@ public class CompanySignUpDetailsUtil {
 		companyDetails.setCountry(companyDetailsDto.getCountry());
 		companyDetails.setContactNumber(companyDetailsDto.getContactNumber());
 		companyDetails.setSizeOfTheCompany(companyDetailsDto.getSizeOfTheCompany());
-
-
+		companyDetails.setActive(companyDetailsDto.getActive());
 
 	}
 
@@ -70,6 +69,7 @@ public class CompanySignUpDetailsUtil {
 		employeeDetails.setState(companyDetailsDto.getState());
 		employeeDetails.setCountry(companyDetailsDto.getCountry());
 		employeeDetails.setContactNumber(companyDetailsDto.getContactNumber());
+
 		employeeDetails.setCompanyDetails(companyDetails);
 		employeeDetailsSet.add(employeeDetails);
 
@@ -105,7 +105,7 @@ public class CompanySignUpDetailsUtil {
 	 * }
 	 */
 
-	public static void sendMessage(MailSender mailSender,String emailId, String companyName, Users users) {
+     public static void sendMessage(MailSender mailSender,String emailId, String companyName, Users users) {
 		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 
 		StringBuilder result = new StringBuilder();
@@ -127,7 +127,7 @@ public class CompanySignUpDetailsUtil {
 
 		mailSender.send(simpleMailMessage);
 
-	}
+	} 
 	
 	
 	

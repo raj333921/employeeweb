@@ -52,7 +52,7 @@ public class EmployeeProductController {
 	@Autowired
 	private EmployeeDetailsInterface employeeDetailsInterface;
 
-	@Autowired
+     @Autowired
 	private MailSender mailSender;
 
 	/**
@@ -125,16 +125,14 @@ public class EmployeeProductController {
 			HttpSession httpSession) throws Exception {
 		EmployeeDataResponseDto employeeDataResponseDto = new EmployeeDataResponseDto();
 
-		/*if (httpSession.getAttribute("userName") != null
-				&& httpSession.getAttribute("userName").equals(employeeDataRequestDto.getUserName())) {*/
+
 			loginValidation(employeeDataRequestDto.getUserName(), employeeDataRequestDto.getPassword());
+
 			List<EmployeeDetails> employeeDetailsList = employeeProductService
 					.findbyCompanyDetails(employeeDataRequestDto.getCompanyId());
-			EmployeeDetailsUtil.mappingEmployeeDataResponse(employeeDetailsList, employeeDataResponseDto);
-		/*} else {
-			throw new ResponseStatusException(HttpStatus.FORBIDDEN);
-		}*/
 
+			EmployeeDetailsUtil.mappingEmployeeDataResponse(employeeDetailsList, employeeDataResponseDto);
+		
 		return employeeDataResponseDto;
 
 	}

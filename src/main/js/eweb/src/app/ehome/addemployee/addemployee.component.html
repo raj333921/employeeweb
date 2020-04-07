@@ -14,10 +14,13 @@
     <a class="nav-link" id="fd-tab" data-toggle="tab" href="#fd" role="tab" aria-controls="fd" aria-selected="false">Family Details</a>
   </li>
 </ul>
-<div *ngIf="!isValidEr">
+<div *ngIf="isValidEr">
   <span id="errMsg" style="color:red">Error in calling Service</span>
-  <span id="sucMsg" style="color:green" *ngIf="!isValidSu">Successfully saved all your data !!</span>
 </div>
+<div *ngIf="isValidSu">
+  <span id="sucMsg" style="color:green">Successfully saved all your data !!</span>
+</div>
+
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="ed" role="tabpanel" aria-labelledby="ed-tab"><div class="form-row">
     <div class="col-md-4 mb-3">

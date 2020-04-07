@@ -15,7 +15,7 @@ empDet : AddEmpDet = new AddEmpDet();
 private ehomeDetails: EhomeDetails = new EhomeDetails();
 submitted = false;
 error = false;
-success = true;
+success = false;
   constructor(private ewebService: EwebcallService,private router: Router,private storageService: StorageService) { }
 
   ngOnInit() {
@@ -29,25 +29,27 @@ this.empDet.adminuserName = this.ehomeDetails.userName;
 this.empDet.companyId = this.ehomeDetails.companyId;
  this.ewebService.addModifyEmp(this.empDet).subscribe((data) => {
          //console.log(data);
+          this.success = true;
           this.gotoList(data);
         },err => {
               this.error = true;
               console.log(err);
           }
       );
-
-          }
+}
 
     gotoList(data : Object) {
       console.log(JSON.stringify(data));
-      this.success = true;
+
       }
 
       get isValidEr() {
+          this.success = false;
           return this.error;
       }
 
       get isValidSu() {
+          this.error = false;
           return this.success;
       }
 

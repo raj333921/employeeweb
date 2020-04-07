@@ -24,7 +24,9 @@ public class EmployeeDetailsUtil {
 		List<EmployeeDetailsResponseDto> employeeDetailsResponseDtoList = new ArrayList<EmployeeDetailsResponseDto>();
 
 		for (EmployeeDetails employeeDetails : employeeDetailsList) {
+
 			EmployeeDetailsResponseDto employeeDetailsResponseDto = new EmployeeDetailsResponseDto();
+
 			employeeDetailsResponseDto.setAddressLine1(employeeDetails.getAddressLine1());
 			employeeDetailsResponseDto.setAddressLine2(employeeDetails.getAddressLine2());
 			employeeDetailsResponseDto.setCity(employeeDetails.getCity());
@@ -54,54 +56,49 @@ public class EmployeeDetailsUtil {
 			employeeDetailsResponseDto.setEmployeePassportDetailResponseDto(employeePassportDetailsResponseDtoList);
 
 			// Mapping workPermit Details
-
 			Set<EmployeeWorkPermitDetails> employeeWorkPermitDetailsList = employeeDetails
 					.getEmployeeWorkPermitDetails();
 			List<EmployeeWorkPermitDetailsResponseDto> employeeWorkPermitDetailsResponseDtoList = new ArrayList<EmployeeWorkPermitDetailsResponseDto>();
-
 			for (EmployeeWorkPermitDetails employeeWorkPermitDetails : employeeWorkPermitDetailsList) {
-
 				EmployeeWorkPermitDetailsResponseDto employeeWorkPermitDetailsResponseDto = new EmployeeWorkPermitDetailsResponseDto();
-
 				employeeWorkPermitDetailsResponseDto
 						.setWorkPermitNumber(employeeWorkPermitDetails.getWorkPermitNumber());
 				employeeWorkPermitDetailsResponseDto.setEndDate(employeeWorkPermitDetails.getEndDate());
 				employeeWorkPermitDetailsResponseDto.setStartDate(employeeWorkPermitDetails.getStartDate());
 				employeeWorkPermitDetailsResponseDto.setValidity(employeeWorkPermitDetails.getValidity());
-
 				employeeWorkPermitDetailsResponseDtoList.add(employeeWorkPermitDetailsResponseDto);
 			}
 			employeeDetailsResponseDto
 					.setEmployeeWorkPermitDetailsResponseDto(employeeWorkPermitDetailsResponseDtoList);
-
 			// Mapping Family Details
 			Set<EmployeeFamilyDetails> employeeFamilyDetailsResponseList = employeeDetails.getEmployeeFamilyDetails();
-
 			List<EmployeeFamilyDetailsResponseDto> employeeFamilyDetailsResponseDtoList = new ArrayList<EmployeeFamilyDetailsResponseDto>();
-
 			for (EmployeeFamilyDetails employeeFamilyDetails : employeeFamilyDetailsResponseList) {
-
 				EmployeeFamilyDetailsResponseDto employeeFamilyDetailsResponseDto = new EmployeeFamilyDetailsResponseDto();
-
 				employeeFamilyDetailsResponseDto.setContactNumber(employeeFamilyDetails.getContactNumber());
 				employeeFamilyDetailsResponseDto.setFirstName(employeeFamilyDetails.getFirstName());
 				employeeFamilyDetailsResponseDto.setLastName(employeeFamilyDetails.getLastName());
 				employeeFamilyDetailsResponseDto.setRelation(employeeFamilyDetails.getRelation());
-
+				employeeFamilyDetailsResponseDto.setId(employeeFamilyDetails.getId());
 				employeeFamilyDetailsResponseDtoList.add(employeeFamilyDetailsResponseDto);
 
 			}
 			employeeDetailsResponseDto.setEmployeeFamilyDetailsResponseDto(employeeFamilyDetailsResponseDtoList);
 
 			// Mapping Payslip Details
-			if( employeeDetails.getEmployeePaySlipDetails() != null) {
-				Set<EmployeePaySlipDetails> employeePaySlipDetailsList = employeeDetails.getEmployeePaySlipDetails();
-				List<EmployeePaySlipDocumentDetailsResponseDto> employeePaySlipDocumentDetailsResponseDtoList = new ArrayList<EmployeePaySlipDocumentDetailsResponseDto>();
+
+			Set<EmployeePaySlipDetails> employeePaySlipDetailsList = employeeDetails.getEmployeePaySlipDetails();
+
+			List<EmployeePaySlipDocumentDetailsResponseDto> employeePaySlipDocumentDetailsResponseDtoList = new ArrayList<EmployeePaySlipDocumentDetailsResponseDto>();
+			if(null != employeePaySlipDetailsList) {
 				for (EmployeePaySlipDetails employeePaySlipDetails : employeePaySlipDetailsList) {
+
 					EmployeePaySlipDocumentDetailsResponseDto employeePaySlipDocumentDetailsResponseDto = new EmployeePaySlipDocumentDetailsResponseDto();
+
 					employeePaySlipDocumentDetailsResponseDto.setDocumentName(employeePaySlipDetails.getPaySlipMonth());
 					employeePaySlipDocumentDetailsResponseDto.setDocumentNumber(employeePaySlipDetails.getPaySlipNumber());
 					employeePaySlipDocumentDetailsResponseDtoList.add(employeePaySlipDocumentDetailsResponseDto);
+
 				}
 				employeeDetailsResponseDto
 						.setEmployeePaySlipDocumentDetailsResponseDto(employeePaySlipDocumentDetailsResponseDtoList);

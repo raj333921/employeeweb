@@ -1,4 +1,5 @@
-/*package com.employee.product;
+/*
+package com.employee.product;
 
 import org.springframework.cloud.aws.mail.simplemail.SimpleEmailServiceMailSender;
 import org.springframework.context.annotation.Bean;
@@ -25,4 +26,5 @@ public class SesConfig {
     public MailSender mailSender(AmazonSimpleEmailService ses) {
         return new SimpleEmailServiceMailSender(ses);
     } 
-}*/
+}
+*/
