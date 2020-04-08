@@ -87,7 +87,7 @@
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault11">Mobile Number *</label>
-        <input type="text" class="form-control" id="validationDefault11" [(ngModel)]= "empDet.employeeDetailsRequestDto.contactNumber" required>
+        <input type="number" class="form-control" id="validationDefault11"  pattern=".{10,10}"  [(ngModel)]= "empDet.employeeDetailsRequestDto.contactNumber" required>
       </div>
     </div>
     <!--<div class="form-group">
@@ -126,23 +126,23 @@
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault15">Passport Number *</label>
-        <input type="text" class="form-control" id="validationDefault15" required>
+        <input type="text" class="form-control" id="validationDefault15" required [(ngModel)]= "emp.passportNumber">
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault16">Passport Start Date *</label>
-        <input type="text" class="form-control" id="validationDefault16" required>
+        <input type="text" class="form-control" id="validationDefault16" required [(ngModel)]= "emp.startDate">
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault17">Passport End Date *</label>
-        <input type="text" class="form-control" id="validationDefault17" required>
+        <input type="text" class="form-control" id="validationDefault17" required [(ngModel)]= "emp.endDate">
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault18">Issued at *</label>
-        <input type="text" class="form-control" id="validationDefault18" required>
+        <input type="text" class="form-control" id="validationDefault18" required required [(ngModel)]= "emp.issuePlace">
       </div>
     </div>
   </div>

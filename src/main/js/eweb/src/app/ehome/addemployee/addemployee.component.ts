@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AddEmpDet} from './addEmpDet'
+import {AddEmpDet} from './addEmpDet';
+import {EmpPass} from './empPass';
+import {EmployeePassportDetailRequestDto} from './employeePassportDetailRequestDto';
 import { EhomeDetails } from '../ehomeDetails';
 import {StorageService} from '../../service/storage.service';
 import { EwebcallService } from '../../service/ewebcall.service';
@@ -13,6 +15,8 @@ import {Router} from "@angular/router";
 export class AddemployeeComponent implements OnInit {
 empDet : AddEmpDet = new AddEmpDet();
 private ehomeDetails: EhomeDetails = new EhomeDetails();
+empPass : EmpPass = new EmpPass();
+emp: EmployeePassportDetailRequestDto = new EmployeePassportDetailRequestDto();
 submitted = false;
 error = false;
 success = false;
@@ -27,6 +31,8 @@ success = false;
        console.log(this.empDet);
 this.empDet.adminuserName = this.ehomeDetails.userName;
 this.empDet.companyId = this.ehomeDetails.companyId;
+
+//this.empDet.employeeDetailsRequestDto.employeePassportDetailRequestDto = this.empPass;
  this.ewebService.addModifyEmp(this.empDet).subscribe((data) => {
          //console.log(data);
           this.success = true;

@@ -7,6 +7,7 @@ import { EhomeComponent } from './ehome/ehome.component';
 import { EmployeeComponent } from './ehome/employee/employee.component';
 import { EheaderComponent } from './ehome/eheader/eheader.component';
 import { AddemployeeComponent } from './ehome/addemployee/addemployee.component';
+import { CpdComponent } from './ehome/cpd/cpd.component';
 
 const routes: Routes = [
  { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'ehome', component: EhomeComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'eheader', component: EheaderComponent },
-  { path: 'addemp', component: AddemployeeComponent }
+  { path: 'addemp', component: AddemployeeComponent },
+{ path: 'cpd', component: CpdComponent }
 ];
 
 @NgModule({

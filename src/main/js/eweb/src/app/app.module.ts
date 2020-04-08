@@ -14,6 +14,7 @@ import { EhomeComponent } from './ehome/ehome.component';
 import { AddemployeeComponent } from './ehome/addemployee/addemployee.component';
 import { EmployeeComponent } from './ehome/employee/employee.component';
 import { EheaderComponent } from './ehome/eheader/eheader.component';
+import { CpdComponent } from './ehome/cpd/cpd.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { EheaderComponent } from './ehome/eheader/eheader.component';
     EhomeComponent,
     EmployeeComponent,
     EheaderComponent,
-    AddemployeeComponent
+    AddemployeeComponent,
+    CpdComponent
   ],
   imports: [
     BrowserModule,

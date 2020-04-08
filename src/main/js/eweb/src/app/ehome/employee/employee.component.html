@@ -3,26 +3,22 @@
 <table class="table">
   <thead class="thead-dark">
   <tr>
-    <th scope="col">#</th>
-    <th scope="col">FirstName</th>
-    <th scope="col">LastName</th>
+    <th scope="col">Name</th>
+ <!--   <th scope="col">LastName</th>-->
     <th scope="col">UserId</th>
     <th scope="col">DateOfBirth</th>
+    <th scope="col">Contact</th>
   </tr>
   </thead>
   <tbody *ngFor="let empResDet of employees">
   <tr>
-    <th scope="row"><div class="custom-control custom-radio">
-      <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-      <label class="custom-control-label" for="customRadio1"></label>
-    </div></th>
-    <td>{{empResDet.firstName}}</td>
-    <td>{{empResDet.lastName}}</td>
+    <td><a href="#">{{empResDet.firstName}} {{empResDet.lastName}}</a></td>
+    <!--<td>{{empResDet.lastName}}</td>-->
     <td>{{empResDet.emailId}}</td>
     <td>{{empResDet.dateOfBirth}}</td>
+    <td>{{empResDet.contactNumber}}</td>
   </tr>
   </tbody>
 </table>
-<a href="adminEmp.html" class="btn btn-primary" style="margin:10px;">Modify An Employee</a>
 <a routerLink = "/addemp" routerLinkActive="active" class="btn btn-primary" style="margin:10px;">Add An Employee</a>
 <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary" style="margin:10px;">Back</a>
