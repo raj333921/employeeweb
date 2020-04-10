@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders  } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpResponse } from '@angular/common/http';
+import {Http, ResponseContentType} from '@angular/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { EhomeDetails } from '../ehome/ehomeDetails';
-
 import { EmpRes } from '../ehome/employee/empRes';
 import { EmpDetails } from '../ehome/employee/empDetails';
 
@@ -13,7 +13,7 @@ providedIn: 'root'
 export class EwebcallService {
 
 private actionUrl: string;
-constructor(private http: HttpClient) {
+constructor(private http: HttpClient,private httpT:Http) {
     this.actionUrl = `http://localhost:8080/EProduct/success`;
   }
 
@@ -31,6 +31,10 @@ constructor(private http: HttpClient) {
       return this.http.post(`http://localhost:8080/EProduct/retrieveEmployeeList`, empDetails).toPromise()
           .then(response => response as EmpRes);
     }
+
+ downloadFile(val): Observable<any>{
+		return this.httpT.get('http://localhost:8080/EProduct/pdfreport/'+val, { responseType: ResponseContentType.Blob });
+   }
 
 addModifyEmp(company: Object): Observable<Object> {
     return this.http.post(`http://localhost:8080/EProduct/addModifyEmployee`, company);

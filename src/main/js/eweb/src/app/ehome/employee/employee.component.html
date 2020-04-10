@@ -1,5 +1,8 @@
 <app-eheader></app-eheader>
 <h2>Employee Details</h2>
+<div style="float:left">
+  <a href="#" (click)="download()">EmployeeList</a>
+</div>
 <table class="table">
   <thead class="thead-dark">
   <tr>
@@ -20,5 +23,5 @@
   </tr>
   </tbody>
 </table>
-<a routerLink = "/addemp" routerLinkActive="active" class="btn btn-primary" style="margin:10px;">Add An Employee</a>
 <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary" style="margin:10px;">Back</a>
+<a routerLink = "/addemp" routerLinkActive="active" class="btn btn-primary" style="margin:10px;">Add An Employee</a>

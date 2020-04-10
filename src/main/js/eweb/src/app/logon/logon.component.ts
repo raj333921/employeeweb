@@ -13,9 +13,12 @@ styleUrls: ['./logon.component.css']
 export class LogonComponent implements OnInit {
 logon: LogonDetails = new LogonDetails();
 eHomeDetails: EhomeDetails = new EhomeDetails();
+errMe = false;
 submitted = false;
+
 constructor(private ewebService: EwebcallService,private router: Router,private storageService: StorageService) { }
-  ngOnInit() { }
+  ngOnInit() {
+  }
     logOnMe() {
        console.log(this.logon);
        if(this.logon.userName !=null && this.logon.password !=null) {
@@ -24,12 +27,17 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
          console.log(this.eHomeDetails);
          this.gotoList(this.eHomeDetails);
         },err => {
+              alert(err.error.message);
+              this.errMe = true;
               console.log(err);
           }
       );}
 
     }
 
+    isErrMe(){
+      return this.errMe;
+    }
     gotoList(eHomeDetails : EhomeDetails) {
       console.log(JSON.stringify(eHomeDetails));
         this.storageService.setEhomDetails(eHomeDetails);

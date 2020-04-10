@@ -100,6 +100,7 @@ CREATE TABLE employeeproduct.Audit_Trial (
 
 ALTER TABLE employeeproduct.employee
 ADD repoting_person varchar(255);
+ALTER TABLE employeeproduct.employee add column active integer;
 
 
 ALTER TABLE employeeproduct.users ADD FOREIGN KEY (`company_id`) REFERENCES employeeproduct.company (`id`);

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { AppComponent } from './app.component';
@@ -32,6 +34,7 @@ import { CpdComponent } from './ehome/cpd/cpd.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,

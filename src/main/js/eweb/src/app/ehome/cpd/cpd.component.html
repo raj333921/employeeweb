@@ -8,20 +8,20 @@
       <div class="col-lg-3 col-md-6 text-center">
         <div class="mt-5">
           <label for="pwdO" class="">Current Password*</label>
-          <input type="password" id="pwdO" class="form-control" placeholder="Current Password" required autofocus>
+          <input type="password" id="pwdO" class="form-control" placeholder="Current Password" [(ngModel)]= "cpd.password" required autofocus>
         </div>
         <div class="mt-5">
           <label for="pwd" class="">New Password*</label>
-          <input type="password" id="pwd" class="form-control" placeholder="New Password" required>
+          <input type="password" id="pwd" name="pwd" class="form-control" placeholder="New Password" [(ngModel)]= "cpd.newPassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
         </div>
         <div class="mt-5">
           <label for="pwdN" class="">Confirm New Password*</label>
-          <input type="password" id="pwdN" class="form-control" placeholder="Confirm New Password" required>
+          <input type="password" id="pwdN" class="form-control" placeholder="Confirm New Password" [(ngModel)]= "cpd.newPassword1" required pattern="{{ cpd.newPassword }}" />
         </div>
         <div class="mt-5">
           <div>
-            <a id="save" class="btn btn-primary" style="margin:10px;">Save</a>
-            <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary">Cancel</a>
+            <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary">Back</a>
+            <a id="save" class="btn btn-primary" style="margin:10px;" (click)="onSubmit()">Save</a>
           </div>
 
         </div>

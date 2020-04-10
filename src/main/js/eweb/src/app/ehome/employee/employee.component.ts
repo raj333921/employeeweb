@@ -27,7 +27,7 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
     reloadData(eHomeDetails: EhomeDetails) {
         this.empDetails.userName = this.eHomeDetails.userName;
         this.empDetails.companyId = this.eHomeDetails.companyId;
-        this.empDetails.password = 'raj';
+        this.empDetails.password = 'sai';
         this.ewebService.employeeList(this.empDetails).then(
             (result) => {this.employees = result.employeeDetailsResponseDto},
            err => {
@@ -35,5 +35,16 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
            }
        );
     }
+
+    download() {
+    this.ewebService.downloadFile(this.eHomeDetails.companyId).subscribe(response => {
+			//let blob:any = new Blob([response.blob()], { type: 'text/json; charset=utf-8' });
+			//const url= window.URL.createObjectURL(blob);
+			//window.open(url);
+			//window.location.href = response.url;
+			fileSaver.saveAs(response.blob(), 'employees.pdf');
+		}), error => console.log('Error downloading the file'),
+                 () => console.info('File downloaded successfully');
+  }
 
 }

@@ -5,8 +5,6 @@ import lombok.Data;
 @Data
 public class EmployeeFamilyDetailsResponseDto {
 
-	private int id;
-
 	private String firstName;
 
 	private String lastName;
@@ -15,6 +13,6 @@ public class EmployeeFamilyDetailsResponseDto {
 
 	private String contactNumber;
 
-
+	private int id;
 
 }

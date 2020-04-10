@@ -17,7 +17,6 @@ showEPanel = false;
 showAdminPanel = false;
   ngOnInit() {
     this.eHomeDetails = this.storageService.getEhomDetails();
-
   }
 
   get isValid(){
@@ -28,11 +27,11 @@ showAdminPanel = false;
   }
 
   get isValidE(){
-if(this.eHomeDetails.role == 'Employee'){
+    if(this.eHomeDetails.role == 'Employee'){
         this.showEPanel = true;
     }
     return this.showEPanel;
-}
+  }
 
 
 
