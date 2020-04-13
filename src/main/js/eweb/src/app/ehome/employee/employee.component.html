@@ -1,7 +1,7 @@
 <app-eheader></app-eheader>
-<h2>Employee Details</h2>
-<div style="float:left">
-  <a href="#" (click)="download()">EmployeeList</a>
+
+<div>
+  <a class="btn btn-link">Employee Details  <a href="#" (click)="download()"><i class="far fa-file-pdf"></i></a> Count: {{employees.length}}</a>
 </div>
 <table class="table">
   <thead class="thead-dark">
@@ -15,7 +15,7 @@
   </thead>
   <tbody *ngFor="let empResDet of employees">
   <tr>
-    <td><a href="#">{{empResDet.firstName}} {{empResDet.lastName}}</a></td>
+    <td><a routerLink = "/addemp" routerLinkActive="active">{{empResDet.firstName}} {{empResDet.lastName}}</a></td>
     <!--<td>{{empResDet.lastName}}</td>-->
     <td>{{empResDet.emailId}}</td>
     <td>{{empResDet.dateOfBirth}}</td>

@@ -99,19 +99,33 @@
       </div>
     </div>-->
   </div>
-  <div class="tab-pane fade" id="wpd" role="tabpanel" aria-labelledby="wpd-tab"><div class="form-row">
+  <div class="tab-pane fade" id="wpd" role="tabpanel" aria-labelledby="wpd-tab">
+    <div class="form-row">
     <div class="col-md-3 mb-3">
-      <label for="validationDefault12">WP Number *</label>
-      <input type="text" class="form-control" id="validationDefault12" required>
+      <label for="validationDefault12">Number *</label>
+      <input type="text" class="form-control" id="validationDefault12" required [(ngModel)]= "empWpd.workPermitNumber">
     </div>
     <div class="col-md-3 mb-3">
-      <label for="validationDefault13">WP Validity *</label>
-      <input type="text" class="form-control" id="validationDefault13" required>
+      <label for="validationDefault13">Validity *</label>
+      <input type="text" class="form-control" id="validationDefault13" required [(ngModel)]= "empWpd.validity">
     </div>
-  </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault24">Start Date *</label>
+        <input type="text" class="form-control" id="validationDefault24" required [(ngModel)]= "empWpd.startDate">
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault25">End Date *</label>
+        <input type="text" class="form-control" id="validationDefault25" required [(ngModel)]= "empWpd.endDate">
+      </div>
+    </div>
     <div>
-      <label for="validationDefault14">WP Image </label>
-      <button type="button" class="form-control" id="validationDefault14" class="btn btn-outline-warning">Upload</button>
+      <label for="validationDefault14">WP Image: </label>
+      <div class="file-field big">
+          <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
+          <input type="file" class="" id="validationDefault14" [(ngModel)]= "empWpd.documentData">
+      </div>
     </div>
     <!--<div class="form-group">
       <div class="form-check">
@@ -126,23 +140,27 @@
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault15">Passport Number *</label>
-        <input type="text" class="form-control" id="validationDefault15" required [(ngModel)]= "emp.passportNumber">
+        <input type="text" class="form-control" id="validationDefault15" required [(ngModel)]= "empPass.passportNumber">
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
-        <label for="validationDefault16">Passport Start Date *</label>
-        <input type="text" class="form-control" id="validationDefault16" required [(ngModel)]= "emp.startDate">
+        <label for="validationDefault16">Issued On *</label>
+        <input type="text" class="form-control" id="validationDefault16" required [(ngModel)]= "empPass.startDate">
       </div>
       <div class="col-md-3 mb-3">
-        <label for="validationDefault17">Passport End Date *</label>
-        <input type="text" class="form-control" id="validationDefault17" required [(ngModel)]= "emp.endDate">
+        <label for="validationDefault17">Expired On *</label>
+        <input type="text" class="form-control" id="validationDefault17" required [(ngModel)]= "empPass.endDate">
       </div>
     </div>
     <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault">Birth Place *</label>
+        <input type="text" class="form-control" id="validationDefault" required required >
+      </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault18">Issued at *</label>
-        <input type="text" class="form-control" id="validationDefault18" required required [(ngModel)]= "emp.issuePlace">
+        <input type="text" class="form-control" id="validationDefault18" required  [(ngModel)]= "empPass.issuePlace">
       </div>
     </div>
   </div>
@@ -150,30 +168,30 @@
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="validationDefault19">First name *</label>
-        <input type="text" class="form-control" id="validationDefault19" value="" required>
+        <input type="text" class="form-control" id="validationDefault19" [(ngModel)]= "empFd.firstName" required>
       </div>
       <div class="col-md-4 mb-3">
         <label for="validationDefault20">Last name *</label>
-        <input type="text" class="form-control" id="validationDefault20" value="" required>
+        <input type="text" class="form-control" id="validationDefault20" [(ngModel)]= "empFd.lastName" required>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault21">Sex *</label>
-        <select class="custom-select" id="validationDefault21" required>
+        <select class="custom-select" id="validationDefault21" [(ngModel)]= "empFd.contactNumber" required>
           <option selected disabled value="">Choose...</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Others</option>
+          <option value="m">Male</option>
+          <option value="f">Female</option>
+          <option value="o">Others</option>
         </select>
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault23">Relation *</label>
-        <select class="custom-select" id="validationDefault23" required>
+        <select class="custom-select" id="validationDefault23" [(ngModel)]= "empFd.relation" required>
           <option selected disabled value="">Choose...</option>
-          <option>Spouse</option>
-          <option>Son</option>
-          <option>Daughter</option>
+          <option value="1">Spouse</option>
+          <option value="2">Son</option>
+          <option value="3">Daughter</option>
         </select>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
@@ -17,7 +16,7 @@ import { AddemployeeComponent } from './ehome/addemployee/addemployee.component'
 import { EmployeeComponent } from './ehome/employee/employee.component';
 import { EheaderComponent } from './ehome/eheader/eheader.component';
 import { CpdComponent } from './ehome/cpd/cpd.component';
-
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -38,6 +37,7 @@ import { CpdComponent } from './ehome/cpd/cpd.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

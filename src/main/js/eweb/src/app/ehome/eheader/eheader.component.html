@@ -3,12 +3,14 @@
     <a routerLink = "/ehome" routerLinkActive="active" class="navbar-brand d-flex align-items-center">
       <strong>{{ehomeDetails.companyName}}</strong>
     </a>
-    <div class="dropdown">
+    <div class="dropdown notification">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ehomeDetails.userName}}
+        <span class="badge">135</span>
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Profile</a>
+        <a class="dropdown-item" routerLink = "/addemp" routerLinkActive="active">Profile</a>
+        <a class="dropdown-item" href="#">Notifications <span class="dot">135</span></a>
         <a class="dropdown-item" routerLink = "/cpd" routerLinkActive="active">Change Password</a>
         <a class="dropdown-item" routerLink = "/logon" routerLinkActive="active">LogOut</a>
       </div>

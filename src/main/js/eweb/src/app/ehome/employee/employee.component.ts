@@ -41,8 +41,8 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
 			//let blob:any = new Blob([response.blob()], { type: 'text/json; charset=utf-8' });
 			//const url= window.URL.createObjectURL(blob);
 			//window.open(url);
-			//window.location.href = response.url;
-			fileSaver.saveAs(response.blob(), 'employees.pdf');
+			window.location.href = response.url;
+			//fileSaver.saveAs(response.blob(), 'employees.pdf');
 		}), error => console.log('Error downloading the file'),
                  () => console.info('File downloaded successfully');
   }

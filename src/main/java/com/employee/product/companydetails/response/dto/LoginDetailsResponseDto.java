@@ -1,6 +1,6 @@
 package com.employee.product.companydetails.response.dto;
 
-
+import com.employee.product.employeedetails.response.dto.EmployeeDetailsResponseDto;
 
 import lombok.Data;
 
@@ -15,6 +15,6 @@ public class LoginDetailsResponseDto {
 	
 	private String companyId;
 	
-	//private EmployeeDetailsDto employeeDetailsDto;
+	private EmployeeDetailsResponseDto employeeDetailsResponseDto;
 
 }

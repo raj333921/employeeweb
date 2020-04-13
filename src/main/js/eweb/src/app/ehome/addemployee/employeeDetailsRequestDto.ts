@@ -1,6 +1,6 @@
-import {EmpFam} from './empFam';
-import {EmpPass} from './empPass';
-import {EmpWPD} from './empWPD';
+import {EmployeeFamilyDetailsRequestDto} from './employeeFamilyDetailsRequestDto';
+import {EmployeePassportDetailRequestDto} from './employeePassportDetailRequestDto';
+import {EmployeeWorkPermitDetailsRequestDto} from './employeeWorkPermitDetailsRequestDto';
 
 export class EmployeeDetailsRequestDto{
 addressLine1: string;
@@ -11,9 +11,9 @@ country:string;
 dateOfBirth:string;
 department:string;
 emailId:string;
-employeeFamilyDetailsRequestDto: EmpFam;
-employeePassportDetailRequestDto: EmpPass;
-employeeWorkPermitDetailsRequestDto:EmpWPD;
+employeeFamilyDetailsRequestDto: EmployeeFamilyDetailsRequestDto[];
+employeePassportDetailRequestDto: EmployeePassportDetailRequestDto[];
+employeeWorkPermitDetailsRequestDto: EmployeeWorkPermitDetailsRequestDto[];
 firstName:string;
 id: string;
 jobRole: string;

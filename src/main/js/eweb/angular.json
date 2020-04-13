@@ -29,14 +29,17 @@
               "src/styles.css",
               "src/css/creative.min.css",
               "src/vendor/fontawesome-free/css/all.min.css",
-              "src/vendor/magnific-popup/magnific-popup.css"
+              "src/vendor/magnific-popup/magnific-popup.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
             ],
             "scripts": [
               "src/vendor/jquery/jquery.min.js",
               "src/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "src/vendor/jquery-easing/jquery.easing.min.js",
               "src/vendor/magnific-popup/jquery.magnific-popup.min.js",
-              "src/js/creative.min.js"
+              "src/js/creative.min.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js"
             ]
           },
           "configurations": {
@@ -90,14 +93,17 @@
               "src/styles.css",
               "src/css/creative.min.css",
               "src/vendor/fontawesome-free/css/all.min.css",
-              "src/vendor/magnific-popup/magnific-popup.css"
+              "src/vendor/magnific-popup/magnific-popup.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
             ],
             "scripts": [
               "src/vendor/jquery/jquery.min.js",
               "src/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "src/vendor/jquery-easing/jquery.easing.min.js",
               "src/vendor/magnific-popup/jquery.magnific-popup.min.js",
-              "src/js/creative.min.js"
+              "src/js/creative.min.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
             ],
             "assets": [
               "src/favicon.ico",

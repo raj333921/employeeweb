@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { EhomeDetails } from '../ehome/ehomeDetails';
 import { EmpRes } from '../ehome/employee/empRes';
+import { EmployeeDetailsRequestDto } from '../ehome/addemployee/employeeDetailsRequestDto';
 import { EmpDetails } from '../ehome/employee/empDetails';
 
 @Injectable({
@@ -36,8 +37,9 @@ constructor(private http: HttpClient,private httpT:Http) {
 		return this.httpT.get('http://localhost:8080/EProduct/pdfreport/'+val, { responseType: ResponseContentType.Blob });
    }
 
-addModifyEmp(company: Object): Observable<Object> {
-    return this.http.post(`http://localhost:8080/EProduct/addModifyEmployee`, company);
+addModifyEmp(company: Object): Promise<EmployeeDetailsRequestDto> {
+    return this.http.post(`http://localhost:8080/EProduct/addModifyEmployee`, company).toPromise()
+          .then(response => response as EmployeeDetailsRequestDto);
   }
 
 }
