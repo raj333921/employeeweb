@@ -1,8 +1,9 @@
-import {EmployeeDetailsRequestDto} from './addemployee/employeeDetailsRequestDto';
+import {EmployeeDetailsResponseDto} from './employeeDetailsResponseDto';
 export class EhomeDetails{
 userName: string;
 role: string;
 companyName: string;
 companyId: string;
-employeeDetailsRequestDto: EmployeeDetailsRequestDto;
+employeeDetailsResponseDto: EmployeeDetailsResponseDto;
+constructor(){}
 }

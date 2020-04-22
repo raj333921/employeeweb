@@ -16,6 +16,7 @@ import { AddemployeeComponent } from './ehome/addemployee/addemployee.component'
 import { EmployeeComponent } from './ehome/employee/employee.component';
 import { EheaderComponent } from './ehome/eheader/eheader.component';
 import { CpdComponent } from './ehome/cpd/cpd.component';
+import { ProfileComponent } from './ehome/profile/profile.component';
 import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
@@ -28,7 +29,8 @@ import { DataTablesModule } from 'angular-datatables';
     EmployeeComponent,
     EheaderComponent,
     AddemployeeComponent,
-    CpdComponent
+    CpdComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

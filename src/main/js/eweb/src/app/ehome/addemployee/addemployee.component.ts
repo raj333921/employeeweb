@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AddEmpDet} from './addEmpDet';
+import {AddEmpReq} from './addEmpReq';
 import {EmployeeDetailsRequestDto} from './employeeDetailsRequestDto'
 import {EmployeePassportDetailRequestDto} from './employeePassportDetailRequestDto';
 import {EmployeeFamilyDetailsRequestDto} from './employeeFamilyDetailsRequestDto';
@@ -15,7 +15,7 @@ templateUrl: './addemployee.component.html',
 styleUrls: ['./addemployee.component.css']
 })
 export class AddemployeeComponent implements OnInit {
-empDet : AddEmpDet = new AddEmpDet();
+empDet : AddEmpReq = new AddEmpReq();
 private ehomeDetails: EhomeDetails = new EhomeDetails();
 empWpd: EmployeeWorkPermitDetailsRequestDto = new EmployeeWorkPermitDetailsRequestDto();
 empPass: EmployeePassportDetailRequestDto = new EmployeePassportDetailRequestDto();
@@ -113,7 +113,6 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
         this.imageError = 'Only Images are allowed ( JPG | PNG | PDF )';
         return false
       }*/
-
         this.empWpd.documentName = file.name;
         this.getBase64(file);
       }
