@@ -17,7 +17,7 @@ import { EmployeeComponent } from './ehome/employee/employee.component';
 import { EheaderComponent } from './ehome/eheader/eheader.component';
 import { CpdComponent } from './ehome/cpd/cpd.component';
 import { ProfileComponent } from './ehome/profile/profile.component';
-import { DataTablesModule } from 'angular-datatables';
+import { TsheetComponent } from './ehome/tsheet/tsheet.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { DataTablesModule } from 'angular-datatables';
     EheaderComponent,
     AddemployeeComponent,
     CpdComponent,
-    ProfileComponent
+    ProfileComponent,
+    TsheetComponent
   ],
   imports: [
     BrowserModule,
@@ -38,8 +39,7 @@ import { DataTablesModule } from 'angular-datatables';
     HttpModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule,
-    DataTablesModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

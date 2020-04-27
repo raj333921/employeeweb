@@ -46,7 +46,7 @@ employeePassportDetailRequestDto: EmployeePassportDetailRequestDto[]){
  this.city = city;
  this.contactNumber = contactNumber;
  this.country = country;
- this.dateOfBirth;
+ this.dateOfBirth = dateOfBirth;
 this.department = department;
 this.emailId = emailId;
 this.firstName = firstName;

@@ -28,7 +28,9 @@ imageError = "";
 error = false;
 success = false;
 id = "0";
+value = "";
 files: any[];
+addEmpReq: EmployeeDetailsRequestDto = new EmployeeDetailsRequestDto();
 addEmpRes: EmployeeDetailsRequestDto = new EmployeeDetailsRequestDto();
 constructor(private ewebService: EwebcallService,private router: Router,private storageService: StorageService) { }
 
@@ -41,6 +43,9 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
       this.empDet.adminuserName = this.ehomeDetails.userName;
       this.empDet.companyId = this.ehomeDetails.companyId;
       console.log(this.empPass);
+      if(this.addEmpReq != null){
+          this.empDet.employeeDetailsRequestDto = this.addEmpReq;
+      }
       if(this.empPass != null && JSON.stringify(this.empPass) != "{}"){
          if (this.empDataPass.indexOf(this.empPass) === -1){
           this.empDataPass.push(this.empPass);
@@ -59,6 +64,7 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
           this.empDet.employeeDetailsRequestDto.employeeFamilyDetailsRequestDto = this.empDataFd;
         }
       }
+
       if(this.id != "0"){
           this.empDet.employeeDetailsRequestDto.id= this.id;
       }
@@ -103,7 +109,7 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
 }
 
 
-  onFileChange(event){
+  onFileChange(event,docType){
     let af = ['image/png', 'image/jpeg','application/pdf']
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
@@ -113,8 +119,19 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
         this.imageError = 'Only Images are allowed ( JPG | PNG | PDF )';
         return false
       }*/
-        this.empWpd.documentName = file.name;
-        this.getBase64(file);
+        //{"documentType":"1","documentNumber":"111111111111"}
+        this.value = '{\"documentType\":\"'+docType+'\",\"documentNumber\":\"'+this.empWpd.workPermitNumber +'\"}';
+        //this.empWpd.documentName = file.name;
+        //this.getBase64(file);
+         this.ewebService.uploadFile(this.value,file).then(
+            (result) => {
+                console.log(result);
+            },
+        err => {
+              this.error = true;
+              console.log(err);
+          }
+      );
       }
     }
 

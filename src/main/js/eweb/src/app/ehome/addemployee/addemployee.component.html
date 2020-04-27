@@ -25,11 +25,11 @@
   <div class="tab-pane fade show active" id="ed" role="tabpanel" aria-labelledby="ed-tab"><div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationDefault01">First name *</label>
-      <input type="text" class="form-control" id="validationDefault01" [(ngModel)]= "empDet.employeeDetailsRequestDto.firstName" value="" required>
+      <input type="text" class="form-control" id="validationDefault01" [(ngModel)]= "addEmpReq.firstName" value="" required>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">Last name *</label>
-      <input type="text" class="form-control" id="validationDefault02" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.lastName" required>
+      <input type="text" class="form-control" id="validationDefault02" value="" [(ngModel)]= "addEmpReq.lastName" required>
     </div>
 
   </div>
@@ -40,20 +40,20 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend2">@</span>
           </div>
-          <input type="text" class="form-control" id="validationDefault03" [(ngModel)]= "empDet.employeeDetailsRequestDto.emailId" aria-describedby="inputGroupPrepend2" required>
+          <input type="text" class="form-control" id="validationDefault03" [(ngModel)]= "addEmpReq.emailId" aria-describedby="inputGroupPrepend2" required>
         </div>
       </div>
       <div class="col-md-4 mb-3">
         <label for="validationDefault04">Date of Birth *</label>
-        <input class="form-control" id="validationDefault04" type="date" [(ngModel)]= "empDet.employeeDetailsRequestDto.dateOfBirth"
+        <input class="form-control" id="validationDefault04" type="date" [(ngModel)]= "addEmpReq.dateOfBirth"
                placeholder="yyyy-MM-dd" min="1945-01-01" max="2019-12-31" required />
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault05">Sex *</label>
-        <select class="custom-select" id="validationDefault05" [(ngModel)]= "empDet.employeeDetailsRequestDto.sex" required>
-          <option selected disabled value="">Choose...</option>
+        <select class="custom-select" id="validationDefault05" [(ngModel)]= "addEmpReq.sex" required>
+          <option selected value="">Choose...</option>
           <option value="m">Male</option>
           <option value="f">Female</option>
           <option value="o">Others</option>
@@ -63,32 +63,32 @@
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="validationDefault06">Address 1 *</label>
-        <input type="text" class="form-control" id="validationDefault06" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.addressLine1" required>
+        <input type="text" class="form-control" id="validationDefault06" value="" [(ngModel)]= "addEmpReq.addressLine1" required>
       </div>
       <div class="col-md-4 mb-3">
         <label for="validationDefault07">Address 2</label>
-        <input type="text" class="form-control" id="validationDefault07" value="" [(ngModel)]= "empDet.employeeDetailsRequestDto.addressLine2" required>
+        <input type="text" class="form-control" id="validationDefault07" value="" [(ngModel)]= "addEmpReq.addressLine2" required>
       </div>
     </div>
 
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault08">City *</label>
-        <input type="text" class="form-control" id="validationDefault08" [(ngModel)]= "empDet.employeeDetailsRequestDto.city" required>
+        <input type="text" class="form-control" id="validationDefault08" [(ngModel)]= "addEmpReq.city" required>
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault09">State *</label>
-        <input type="text" class="form-control" id="validationDefault09" [(ngModel)]= "empDet.employeeDetailsRequestDto.state" required>
+        <input type="text" class="form-control" id="validationDefault09" [(ngModel)]= "addEmpReq.state" required>
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault10">Country *</label>
-        <input type="text" class="form-control" id="validationDefault10" [(ngModel)]= "empDet.employeeDetailsRequestDto.country" required>
+        <input type="text" class="form-control" id="validationDefault10" [(ngModel)]= "addEmpReq.country" required>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault11">Mobile Number *</label>
-        <input type="number" class="form-control" id="validationDefault11"  pattern=".{10,10}"  [(ngModel)]= "empDet.employeeDetailsRequestDto.contactNumber" required>
+        <input type="number" class="form-control" id="validationDefault11"  pattern=".{10,10}"  [(ngModel)]= "addEmpReq.contactNumber" required>
       </div>
     </div>
     <!--<div class="form-group">
@@ -128,7 +128,7 @@
       <label for="validationDefault14">WP Image: </label>
       <div class="file-field big">
           <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
-          <input type="file" class="" id="validationDefault14" (change)="onFileChange($event)">
+          <input type="file" class="" id="validationDefault14" [disabled]="empWpd.workPermitNumber == undefined || empWpd.workPermitNumber == ''" (change)="onFileChange($event,1)">
       </div>
     </div>
     <!--<div class="form-group">
@@ -167,6 +167,13 @@
       <div class="col-md-3 mb-3">
         <label for="validationDefault18">Issued at *</label>
         <input type="text" class="form-control" id="validationDefault18" required  [(ngModel)]= "empPass.issuePlace">
+      </div>
+    </div>
+    <div>
+      <label for="validationDefault40">Proof: </label>
+      <div class="file-field big">
+        <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
+        <input type="file" class="" id="validationDefault40" [disabled]="empPass.passportNumber == undefined || empPass.passportNumber == ''" (change)="onFileChange($event,2)">
       </div>
     </div>
   </div>

@@ -37,6 +37,15 @@ constructor(private http: HttpClient,private httpT:Http) {
 		return this.httpT.get('http://localhost:8080/EProduct/pdfreport/'+val, { responseType: ResponseContentType.Blob });
    }
 
+ uploadFile(value: any,file: any): Promise<String>{
+        let url = 'http://localhost:8080/EProduct/uploadDocument';
+        let input = new FormData();
+        input.append('file', file);
+        input.append('value',value);
+	return this.http.post(`http://localhost:8080/EProduct/uploadDocument`,input).toPromise()
+          .then(response => response as String);
+ }
+
 addModifyEmp(company: Object): Promise<EmployeeDetailsRequestDto> {
     return this.http.post(`http://localhost:8080/EProduct/addModifyEmployee`, company).toPromise()
           .then(response => response as EmployeeDetailsRequestDto);

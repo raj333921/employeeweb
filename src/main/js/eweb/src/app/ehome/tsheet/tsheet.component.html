@@ -1,0 +1,38 @@
+<app-eheader></app-eheader>
+<br>
+<h5 class="text-left mt-0">
+  TimeSheet Entry
+</h5>
+<div class="container">
+  <form action="/action_page.php">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="tow">Type of Work: *</label>
+        <select class="form-control" id="tow">
+          <option value="TO">OFFICE</option>
+          <option value="TR">REMOTE</option>
+          <option value="TS">SICK</option>
+          <option value="TV">VACATION</option>
+          <option value="TP">PUBLIC HOLIDAY</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="dates">Date *</label>
+        <input class="form-control" id="dates" type="date" placeholder="yyyy-MM-dd" min="2019-01-01" max="2150-12-31"  required />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="tim">Time In:</label>
+        <input type="time" class="form-control" id="tim" name="tim">
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="up">Upload:</label>
+        <input type="file" class="form-control" id="up" name="up">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

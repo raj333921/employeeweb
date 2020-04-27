@@ -9,6 +9,7 @@ import { EheaderComponent } from './ehome/eheader/eheader.component';
 import { AddemployeeComponent } from './ehome/addemployee/addemployee.component';
 import { CpdComponent } from './ehome/cpd/cpd.component';
 import { ProfileComponent } from './ehome/profile/profile.component';
+import { TsheetComponent } from './ehome/tsheet/tsheet.component';
 
 const routes: Routes = [
  { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'eheader', component: EheaderComponent },
   { path: 'addemp', component: AddemployeeComponent },
   { path: 'cpd', component: CpdComponent },
-{ path: 'profile', component: ProfileComponent }
+{ path: 'profile', component: ProfileComponent },
+{ path: 'tsheet', component: TsheetComponent }
 ];
 
 @NgModule({
