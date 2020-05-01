@@ -112,6 +112,10 @@ ALTER TABLE employeeproduct.employee
 ADD repoting_person varchar(255);
 ALTER TABLE employeeproduct.employee add column active integer;
 
+DROP INDEX email_id ON employee;
+
+ALTER TABLE employee ADD CONSTRAINT email_id UNIQUE(email_id, active);
+
 
 ALTER TABLE employeeproduct.users ADD FOREIGN KEY (`company_id`) REFERENCES employeeproduct.company (`id`);
 
