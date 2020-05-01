@@ -54,9 +54,9 @@
         <label for="validationDefault05">Sex *</label>
         <select class="custom-select" id="validationDefault05" [(ngModel)]= "addEmpReq.sex" required>
           <option selected value="">Choose...</option>
-          <option value="m">Male</option>
-          <option value="f">Female</option>
-          <option value="o">Others</option>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+          <option value="O">Others</option>
         </select>
       </div>
     </div>
@@ -109,7 +109,7 @@
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationDefault13">Validity *</label>
-      <input type="text" class="form-control" id="validationDefault13" required [(ngModel)]= "empWpd.validity">
+      <input type="number" class="form-control" id="validationDefault13" required [(ngModel)]= "empWpd.validity">
     </div>
     </div>
     <div class="form-row">

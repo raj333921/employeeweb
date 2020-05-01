@@ -19,9 +19,9 @@ reportingPerson: string;
 sex: string;
 state: string;
 workLocation: string;
-employeeFamilyDetailsRequestDto: EmployeeFamilyDetailsRequestDto[];
-employeePassportDetailRequestDto: EmployeePassportDetailRequestDto[];
-employeeWorkPermitDetailsRequestDto: EmployeeWorkPermitDetailsRequestDto[];
+familyDetails: EmployeeFamilyDetailsRequestDto[];
+passportDetails: EmployeePassportDetailRequestDto[];
+workPermitDetails: EmployeeWorkPermitDetailsRequestDto[];
 constructor(){}
 init(addressLine1: string,addressLine2: string,
 city: string,
@@ -38,9 +38,9 @@ reportingPerson: string,
 sex: string,
 state: string,
 workLocation: string,
-employeeWorkPermitDetailsRequestDto: EmployeeWorkPermitDetailsRequestDto[],
-employeeFamilyDetailsRequestDto: EmployeeFamilyDetailsRequestDto[],
-employeePassportDetailRequestDto: EmployeePassportDetailRequestDto[]){
+workPermitDetails: EmployeeWorkPermitDetailsRequestDto[],
+familyDetails: EmployeeFamilyDetailsRequestDto[],
+passportDetails: EmployeePassportDetailRequestDto[]){
  this.addressLine1 = addressLine1;
  this.addressLine2 = addressLine2;
  this.city = city;
@@ -57,8 +57,8 @@ this.reportingPerson = reportingPerson;
 this.sex = sex;
 this.state = state;
 this.workLocation = workLocation;
-this.employeeWorkPermitDetailsRequestDto = employeeWorkPermitDetailsRequestDto;
-this.employeeFamilyDetailsRequestDto=employeeFamilyDetailsRequestDto;
-this.employeePassportDetailRequestDto=employeePassportDetailRequestDto;
+this.workPermitDetails = workPermitDetails;
+this.familyDetails=familyDetails;
+this.workPermitDetails=workPermitDetails;
 }
 }

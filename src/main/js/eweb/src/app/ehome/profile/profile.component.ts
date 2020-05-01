@@ -36,23 +36,21 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
 ngOnInit() {
     this.ehomeDetails = this.storageService.getEhomDetails();
     this.addEmpReq = new AddEmpReq();
-   // console.log(JSON.stringify(this.ehomeDetails.employeeDetailsResponseDto));
-    //console.log(JSON.stringify(this.addEmpReq));
     this.mapResToReq();
   }
   mapResToReq(){
     this.addEmpReq.adminuserName = this.ehomeDetails.userName;
     this.addEmpReq.companyId = this.ehomeDetails.companyId;
-   if(this.ehomeDetails.employeeDetailsResponseDto.employeeWorkPermitDetailsResponseDto.length > 0){
-    for (this.empWpd of this.ehomeDetails.employeeDetailsResponseDto.employeeWorkPermitDetailsResponseDto) {
-      this.employeeWPD.init(this.empWpd.documentData,this.empWpd.documentName,this.empWpd.endDate,this.empWpd.startDate,this.empWpd.validity,this.empWpd.workPermitNumber);
+   if(this.ehomeDetails.employeeDetails.workPermitDetails.length > 0){
+    for (this.empWpd of this.ehomeDetails.employeeDetails.workPermitDetails) {
+      this.employeeWPD.init(this.empWpd.endDate,this.empWpd.startDate,this.empWpd.validity,this.empWpd.workPermitNumber);
        if (this.employeeWPDA.indexOf(this.employeeWPD) === -1){
           this.employeeWPDA.push(this.employeeWPD);
         }
     }
   }
-    if(this.ehomeDetails.employeeDetailsResponseDto.employeePassportDetailResponseDto.length > 0){
-    for (this.empPdr of this.ehomeDetails.employeeDetailsResponseDto.employeePassportDetailResponseDto) {
+    if(this.ehomeDetails.employeeDetails.passportDetails.length > 0){
+    for (this.empPdr of this.ehomeDetails.employeeDetails.passportDetails) {
       this.employeePDR.init(this.empPdr.endDate,this.empPdr.issuePlace,this.empPdr.passportNumber,this.empPdr.startDate,this.empPdr.validity);
        if (this.employeePDRA.indexOf(this.employeePDR) === -1){
           this.employeePDRA.push(this.employeePDR);
@@ -60,8 +58,8 @@ ngOnInit() {
       }
     }
 
-  if(this. ehomeDetails.employeeDetailsResponseDto.employeeFamilyDetailsResponseDto.length > 0){
-    for (this.empFdr of this.ehomeDetails.employeeDetailsResponseDto.employeeFamilyDetailsResponseDto) {
+  if(this. ehomeDetails.employeeDetails.familyDetails.length > 0){
+    for (this.empFdr of this.ehomeDetails.employeeDetails.familyDetails) {
       this.employeeFDR.init(this.empFdr.contactNumber,this.empFdr.firstName,this.empFdr.id,this.empFdr.lastName,this.empFdr.relation);
        if (this.employeeFDRA.indexOf(this.employeeFDR) === -1){
           this.employeeFDRA.push(this.employeeFDR);
@@ -69,9 +67,9 @@ ngOnInit() {
     }
   }
 
-    this.employeeDet.init(this.ehomeDetails.employeeDetailsResponseDto.addressLine1,this.ehomeDetails.employeeDetailsResponseDto.addressLine2,this.ehomeDetails.employeeDetailsResponseDto.city,this.ehomeDetails.employeeDetailsResponseDto.contactNumber,this.ehomeDetails.employeeDetailsResponseDto.country,
-  this.ehomeDetails.employeeDetailsResponseDto.dateOfBirth,this.ehomeDetails.employeeDetailsResponseDto.department,this.ehomeDetails.employeeDetailsResponseDto.emailId,this.ehomeDetails.employeeDetailsResponseDto.firstName,this.ehomeDetails.employeeDetailsResponseDto.id,this.ehomeDetails.employeeDetailsResponseDto.jobRole,this.ehomeDetails.employeeDetailsResponseDto.lastName,this.ehomeDetails.employeeDetailsResponseDto.reportingPerson,this.ehomeDetails.employeeDetailsResponseDto.sex,this.ehomeDetails.employeeDetailsResponseDto.state,this.ehomeDetails.employeeDetailsResponseDto.workLocation,this.employeeWPDA,this.employeeFDRA,this.employeePDRA);
-    this.addEmpReq.employeeDetailsRequestDto = this.employeeDet;
+    this.employeeDet.init(this.ehomeDetails.employeeDetails.addressLine1,this.ehomeDetails.employeeDetails.addressLine2,this.ehomeDetails.employeeDetails.city,this.ehomeDetails.employeeDetails.contactNumber,this.ehomeDetails.employeeDetails.country,
+  this.ehomeDetails.employeeDetails.dateOfBirth,this.ehomeDetails.employeeDetails.department,this.ehomeDetails.employeeDetails.emailId,this.ehomeDetails.employeeDetails.firstName,this.ehomeDetails.employeeDetails.id,this.ehomeDetails.employeeDetails.jobRole,this.ehomeDetails.employeeDetails.lastName,this.ehomeDetails.employeeDetails.reportingPerson,this.ehomeDetails.employeeDetails.sex,this.ehomeDetails.employeeDetails.state,this.ehomeDetails.employeeDetails.workLocation,this.employeeWPDA,this.employeeFDRA,this.employeePDRA);
+    this.addEmpReq.employeeDetails = this.employeeDet;
     console.log(JSON.stringify(this.addEmpReq));
   }
 

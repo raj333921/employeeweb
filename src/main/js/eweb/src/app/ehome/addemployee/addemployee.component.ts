@@ -44,29 +44,29 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
       this.empDet.companyId = this.ehomeDetails.companyId;
       console.log(this.empPass);
       if(this.addEmpReq != null){
-          this.empDet.employeeDetailsRequestDto = this.addEmpReq;
+          this.empDet.employeeDetails = this.addEmpReq;
       }
       if(this.empPass != null && JSON.stringify(this.empPass) != "{}"){
          if (this.empDataPass.indexOf(this.empPass) === -1){
           this.empDataPass.push(this.empPass);
-          this.empDet.employeeDetailsRequestDto.employeePassportDetailRequestDto = this.empDataPass;
+          this.empDet.employeeDetails.passportDetails = this.empDataPass;
         }
       }
       if(this.empWpd != null && JSON.stringify(this.empWpd) != "{}"){
           if (this.empDataWpd.indexOf(this.empWpd) === -1){
           this.empDataWpd.push(this.empWpd);
-          this.empDet.employeeDetailsRequestDto.employeeWorkPermitDetailsRequestDto = this.empDataWpd;
+          this.empDet.employeeDetails.workPermitDetails = this.empDataWpd;
         }
       }
       if(this.empFd != null && JSON.stringify(this.empFd) != "{}"){
          if (this.empDataFd.indexOf(this.empFd) === -1){
           this.empDataFd.push(this.empFd);
-          this.empDet.employeeDetailsRequestDto.employeeFamilyDetailsRequestDto = this.empDataFd;
+          this.empDet.employeeDetails.familyDetails = this.empDataFd;
         }
       }
 
       if(this.id != "0"){
-          this.empDet.employeeDetailsRequestDto.id= this.id;
+          this.empDet.employeeDetails.id= this.id;
       }
 
       this.ewebService.addModifyEmp(this.empDet).then(
@@ -100,7 +100,7 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
    var reader = new FileReader();
    reader.readAsDataURL(file);
    reader.onload = (e) => {
-      this.empWpd.documentData = reader.result;
+     // this.empWpd.documentData = reader.result;
      //console.log(reader.result);
    };
    reader.onerror = function (error) {

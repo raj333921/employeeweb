@@ -2,5 +2,5 @@ import {EmpResDet} from './empResDet';
 
 export  class EmpRes{
 
-employeeDetailsResponseDto: Array<EmpResDet>;
+employeeList: Array<EmpResDet>;
 }

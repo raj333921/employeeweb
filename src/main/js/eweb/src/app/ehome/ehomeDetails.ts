@@ -4,6 +4,6 @@ userName: string;
 role: string;
 companyName: string;
 companyId: string;
-employeeDetailsResponseDto: EmployeeDetailsResponseDto;
+employeeDetails: EmployeeDetailsResponseDto;
 constructor(){}
 }

@@ -19,9 +19,9 @@ reportingPerson: string;
 jobRole:string;
 workLocation:string;
 department:string;
-employeeWorkPermitDetailsResponseDto:EmployeeWorkPermitDetailsResponseDto[];
-employeePassportDetailResponseDto:EmployeePassportDetailResponseDto[];
-employeeFamilyDetailsResponseDto:EmployeeFamilyDetailsResponseDto[];
+workPermitDetails:EmployeeWorkPermitDetailsResponseDto[];
+passportDetails:EmployeePassportDetailResponseDto[];
+familyDetails:EmployeeFamilyDetailsResponseDto[];
 
 constructor(){}
 }

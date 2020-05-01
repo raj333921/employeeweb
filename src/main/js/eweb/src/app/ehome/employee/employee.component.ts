@@ -29,7 +29,7 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
         this.empDetails.companyId = this.eHomeDetails.companyId;
         this.empDetails.password = 'sai';
         this.ewebService.employeeList(this.empDetails).then(
-            (result) => {this.employees = result.employeeDetailsResponseDto},
+            (result) => {this.employees = result.employeeList},
            err => {
                console.log(err);
            }

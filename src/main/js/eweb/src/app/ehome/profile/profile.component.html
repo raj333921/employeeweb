@@ -27,60 +27,60 @@
   <div class="tab-pane fade show active" id="ed" role="tabpanel" aria-labelledby="ed-tab"><div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationDefault01">First name *</label>
-      <input type="text" class="form-control" id="validationDefault01" [(ngModel)]= "addEmpReq.employeeDetailsRequestDto.firstName" required>
+      <input type="text" class="form-control" id="validationDefault01" [(ngModel)]= "addEmpReq.employeeDetails.firstName" required>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">Last name *</label>
-      <input type="text" class="form-control" id="validationDefault02" [(ngModel)]= "addEmpReq.employeeDetailsRequestDto.lastName" required>
+      <input type="text" class="form-control" id="validationDefault02" [(ngModel)]= "addEmpReq.employeeDetails.lastName" required>
     </div>
 
   </div>
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="validationDefault04">Date of Birth *</label>
-        <input class="form-control" id="validationDefault04" type="date" placeholder="yyyy-MM-dd" min="1945-01-01" max="2019-12-31"  [(ngModel)]= "addEmpReq.employeeDetailsRequestDto.dateOfBirth" required />
+        <input class="form-control" id="validationDefault04" type="date" placeholder="yyyy-MM-dd" min="1945-01-01" max="2019-12-31"  [(ngModel)]= "addEmpReq.employeeDetails.dateOfBirth" required />
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault05">Sex *</label>
-        <select class="custom-select" id="validationDefault05" [(ngModel)]= "addEmpReq.employeeDetailsRequestDto.sex" required>
+        <select class="custom-select" id="validationDefault05" [(ngModel)]= "addEmpReq.employeeDetails.sex" required>
           <option selected value="">Choose...</option>
-          <option value="m">Male</option>
-          <option value="f">Female</option>
-          <option value="o">Others</option>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+          <option value="O">Others</option>
         </select>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="validationDefault06">Address 1 *</label>
-        <input type="text" class="form-control" id="validationDefault06" [(ngModel)]= "addEmpReq.employeeDetailsRequestDto.addressLine1" required>
+        <input type="text" class="form-control" id="validationDefault06" [(ngModel)]= "addEmpReq.employeeDetails.addressLine1" required>
       </div>
       <div class="col-md-4 mb-3">
         <label for="validationDefault07">Address 2</label>
-        <input type="text" class="form-control" id="validationDefault07" [(ngModel)]= "addEmpReq.employeeDetailsRequestDto.addressLine2" required>
+        <input type="text" class="form-control" id="validationDefault07" [(ngModel)]= "addEmpReq.employeeDetails.addressLine2" required>
       </div>
     </div>
 
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault08">City *</label>
-        <input type="text" class="form-control" id="validationDefault08" [(ngModel)]= "addEmpReq.employeeDetailsRequestDto.city" required>
+        <input type="text" class="form-control" id="validationDefault08" [(ngModel)]= "addEmpReq.employeeDetails.city" required>
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault09">State *</label>
-        <input type="text" class="form-control" id="validationDefault09" [(ngModel)]= "addEmpReq.employeeDetailsRequestDto.state" required>
+        <input type="text" class="form-control" id="validationDefault09" [(ngModel)]= "addEmpReq.employeeDetails.state" required>
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault10">Country *</label>
-        <input type="text" class="form-control" id="validationDefault10" [(ngModel)]= "addEmpReq.employeeDetailsRequestDto.country" required>
+        <input type="text" class="form-control" id="validationDefault10" [(ngModel)]= "addEmpReq.employeeDetails.country" required>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault11">Mobile Number *</label>
-        <input type="number" class="form-control" id="validationDefault11"  [(ngModel)]= "addEmpReq.employeeDetailsRequestDto.contactNumber" pattern=".{10,10}" required>
+        <input type="number" class="form-control" id="validationDefault11"  [(ngModel)]= "addEmpReq.employeeDetails.contactNumber" pattern=".{10,10}" required>
       </div>
     </div>
     <!--<div class="form-group">
@@ -94,7 +94,7 @@
   </div>
   <div class="tab-pane fade" id="wpd" role="tabpanel" aria-labelledby="wpd-tab">
     {{imageError}}
-    <div  *ngFor="let empWpd of addEmpReq.employeeDetailsRequestDto.employeeWorkPermitDetailsRequestDto">
+    <div  *ngFor="let empWpd of addEmpReq.employeeDetails.workPermitDetails">
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault12">Number *</label>
@@ -102,7 +102,7 @@
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault13">Validity *</label>
-        <input type="text" class="form-control" id="validationDefault13" required [(ngModel)]= "empWpd.validity">
+        <input type="number" class="form-control" id="validationDefault13" required [(ngModel)]= "empWpd.validity">
       </div>
     </div>
     <div class="form-row">
@@ -135,7 +135,7 @@
     </div>-->
   </div>
   <div class="tab-pane fade" id="pd" role="tabpanel" aria-labelledby="pd-tab">
-    <div *ngFor="let empPass of addEmpReq.employeeDetailsRequestDto.employeePassportDetailRequestDto">
+    <div *ngFor="let empPass of addEmpReq.employeeDetails.passportDetails">
     <div class="form-row" >
       <div class="col-md-3 mb-3">
         <label for="validationDefault15">Passport Number *</label>
@@ -167,7 +167,7 @@
   </div>
   </div>
   <div class="tab-pane fade" id="fd" role="tabpanel" aria-labelledby="fd-tab">
-    <div  *ngFor="let empFd of addEmpReq.employeeDetailsRequestDto.employeeFamilyDetailsRequestDto">
+    <div  *ngFor="let empFd of addEmpReq.employeeDetails.familyDetails">
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="validationDefault19">First name *</label>
