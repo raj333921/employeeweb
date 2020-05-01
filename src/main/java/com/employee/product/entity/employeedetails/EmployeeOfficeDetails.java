@@ -1,4 +1,4 @@
-package com.employee.product.entity.employeedetails;//package com.employee.product.entity.employeedetails;
+//package com.employee.product.entity.employeedetails;
 //
 //import java.sql.Date;
 //import java.util.Set;
