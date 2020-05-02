@@ -45,7 +45,7 @@
       <div class="col-md-3 mb-3">
         <label for="validationDefault05">Sex *</label>
         <select class="custom-select" id="validationDefault05" [(ngModel)]= "addEmpReq.employeeDetails.sex" required>
-          <option selected value="">Choose...</option>
+          <option selected value="undefined">Choose...</option>
           <option value="M">Male</option>
           <option value="F">Female</option>
           <option value="O">Others</option>
@@ -186,7 +186,7 @@
       <div class="col-md-3 mb-3">
         <label for="validationDefault23">Relation *</label>
         <select class="custom-select" id="validationDefault23" [(ngModel)]= "empFd.relation" required>
-          <option selected disabled value="">Choose...</option>
+          <option selected value="undefined">Choose...</option>
           <option value="1">Spouse</option>
           <option value="2">Son</option>
           <option value="3">Daughter</option>

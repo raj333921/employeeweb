@@ -10,6 +10,7 @@ import { AddemployeeComponent } from './ehome/addemployee/addemployee.component'
 import { CpdComponent } from './ehome/cpd/cpd.component';
 import { ProfileComponent } from './ehome/profile/profile.component';
 import { TsheetComponent } from './ehome/tsheet/tsheet.component';
+import { TesheetComponent } from './ehome/tesheet/tesheet.component';
 
 const routes: Routes = [
  { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'addemp', component: AddemployeeComponent },
   { path: 'cpd', component: CpdComponent },
 { path: 'profile', component: ProfileComponent },
-{ path: 'tsheet', component: TsheetComponent }
+{ path: 'tsheet', component: TsheetComponent },
+{ path: 'tesheet', component: TesheetComponent }
 ];
 
 @NgModule({

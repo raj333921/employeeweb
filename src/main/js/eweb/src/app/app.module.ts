@@ -18,6 +18,7 @@ import { EheaderComponent } from './ehome/eheader/eheader.component';
 import { CpdComponent } from './ehome/cpd/cpd.component';
 import { ProfileComponent } from './ehome/profile/profile.component';
 import { TsheetComponent } from './ehome/tsheet/tsheet.component';
+import { TesheetComponent } from './ehome/tesheet/tesheet.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TsheetComponent } from './ehome/tsheet/tsheet.component';
     AddemployeeComponent,
     CpdComponent,
     ProfileComponent,
-    TsheetComponent
+    TsheetComponent,
+    TesheetComponent
   ],
   imports: [
     BrowserModule,

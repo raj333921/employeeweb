@@ -53,11 +53,15 @@
       <div class="col-md-3 mb-3">
         <label for="validationDefault05">Sex *</label>
         <select class="custom-select" id="validationDefault05" [(ngModel)]= "addEmpReq.sex" required>
-          <option selected value="">Choose...</option>
+          <option selected value="undefined">Choose Sex...</option>
           <option value="M">Male</option>
           <option value="F">Female</option>
           <option value="O">Others</option>
         </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault81">JobRole</label>
+        <input type="text" class="form-control" id="validationDefault81" value="" [(ngModel)]= "addEmpReq.jobRole" required>
       </div>
     </div>
     <div class="form-row">
@@ -196,7 +200,7 @@
       <div class="col-md-3 mb-3">
         <label for="validationDefault23">Relation *</label>
         <select class="custom-select" id="validationDefault23" [(ngModel)]= "empFd.relation" required>
-          <option selected disabled value="">Choose...</option>
+          <option selected value="undefined">Choose Relation...</option>
           <option value="1">Spouse</option>
           <option value="2">Son</option>
           <option value="3">Daughter</option>
