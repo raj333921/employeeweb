@@ -4,6 +4,7 @@ import {Http, ResponseContentType} from '@angular/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { EhomeDetails } from '../ehome/ehomeDetails';
+import { CommonResponse } from '../ehome/commonResponse';
 import { EmpRes } from '../ehome/employee/empRes';
 import { EmployeeDetailsRequestDto } from '../ehome/addemployee/employeeDetailsRequestDto';
 import { EmpDetails } from '../ehome/employee/empDetails';
@@ -33,8 +34,11 @@ constructor(private http: HttpClient,private httpT:Http) {
           .then(response => response as EmpRes);
     }
 
- downloadFile(val): Observable<any>{
-		return this.httpT.get('http://localhost:8080/EProduct/pdfreport/'+val, { responseType: ResponseContentType.Blob });
+ downloadFile(empDetails : EmpDetails): Promise<Blob>{
+		return this.http.post('http://localhost:8080/EProduct/pdfReport',empDetails, {
+    responseType: "blob"
+  }).toPromise()
+          .then(response => response as Blob);
    }
 
  uploadFile(value: any,file: any): Promise<String>{
@@ -50,5 +54,16 @@ addModifyEmp(company: Object): Promise<EmployeeDetailsRequestDto> {
     return this.http.post(`http://localhost:8080/EProduct/addModifyEmployee`, company).toPromise()
           .then(response => response as EmployeeDetailsRequestDto);
   }
+
+deleteEmp(company: Object): Promise<CommonResponse> {
+    return this.http.post(`http://localhost:8080/EProduct/deleteEmployee`, company).toPromise()
+          .then(response => response as CommonResponse);
+  }
+
+retrieveEmployeeData(company: Object): Promise<EmployeeDetailsRequestDto> {
+    return this.http.post(`http://localhost:8080/EProduct/retrieveEmployeeData`, company).toPromise()
+          .then(response => response as EmployeeDetailsRequestDto);
+  }
+
 
 }

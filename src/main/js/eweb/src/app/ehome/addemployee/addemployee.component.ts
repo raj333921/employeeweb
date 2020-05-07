@@ -73,14 +73,18 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
             (result) => {
                 this.addEmpRes = result;
                 this.id = this.addEmpRes.id;
+                this.navigato();
             },
         err => {
               this.error = true;
               console.log(err);
           }
       );
-}
 
+}
+    navigato(){
+      this.router.navigate(['/employee']);
+    }
       get isValidEr() {
           this.success = false;
           return this.error;

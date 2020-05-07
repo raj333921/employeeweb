@@ -2,7 +2,6 @@ package com.employee.product.employeedetails.request.dto;
 
 import java.sql.Date;
 import java.util.List;
-import com.employee.product.employeedetails.common.*;
 
 
 import lombok.Data;
@@ -20,7 +19,7 @@ public class EmployeeDetailsRequestDto {
 	
 	private String emailId;
 
-	private Sex sex;
+	private String sex;
 	
 	private String addressLine1;
 
@@ -49,10 +48,7 @@ public class EmployeeDetailsRequestDto {
     private List<EmployeePassportDetailsRequestDto> passportDetails;
     
     private List<EmployeeFamilyDetailsRequestDto> familyDetails;
-	
-	/*
-	 * private List<EmployeePaySlipDetailsRequestDto>
-	 * employeePaySlipDetailsRequestDto;
-	 */
+    
+    private List<EmployeePaySlipDetailsRequestDto> paySlipDetails;
 
 }

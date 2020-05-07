@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.employee.product.employeedetails.response.dto.EmployeeDetailsListRes;
 import com.employee.product.employeedetails.response.dto.EmployeeDataResponseDto;
 import com.employee.product.employeedetails.response.dto.EmployeeDetailsResponseDto;
 import com.employee.product.employeedetails.response.dto.EmployeeFamilyDetailsResponseDto;
 import com.employee.product.employeedetails.response.dto.EmployeePassportDetailsResponseDto;
+import com.employee.product.employeedetails.response.dto.EmployeePaySlipDocumentDetailsResponseDto;
 import com.employee.product.employeedetails.response.dto.EmployeeWorkPermitDetailsResponseDto;
 import com.employee.product.entity.employeedetails.EmployeeDetails;
 import com.employee.product.entity.employeedetails.EmployeeFamilyDetails;
 import com.employee.product.entity.employeedetails.EmployeePassportDetails;
+import com.employee.product.entity.employeedetails.EmployeePaySlipDetails;
 import com.employee.product.entity.employeedetails.EmployeeWorkPermitDetails;
 
 public class EmployeeDetailsUtil {
@@ -23,31 +24,23 @@ public class EmployeeDetailsUtil {
 
 	public static void mappingEmployeeDataResponse(List<EmployeeDetails> employeeDetailsList,
 			EmployeeDataResponseDto employeeDataResponseDto) {
-		List<EmployeeDetailsListRes> employeeDetailsResponseDtoList = new ArrayList<EmployeeDetailsListRes>();
+
+		List<EmployeeDetailsResponseDto> employeeDetailsResponseDtoList = new ArrayList<EmployeeDetailsResponseDto>();
+
 		for (EmployeeDetails employeeDetails : employeeDetailsList) {
 			if (employeeDetails.getActive() != 0) {
-				EmployeeDetailsListRes employeeDetailsResponseDto = new EmployeeDetailsListRes();
-				mapEmployeeDetailsEach(employeeDetailsResponseDto, employeeDetails);
+				EmployeeDetailsResponseDto employeeDetailsResponseDto = new EmployeeDetailsResponseDto();
+				mapEmployeeDetails(employeeDetailsResponseDto, employeeDetails, true);
 				employeeDetailsResponseDtoList.add(employeeDetailsResponseDto);
 			}
 		}
-		employeeDataResponseDto.setEmployeeList(employeeDetailsResponseDtoList);
+
+		employeeDataResponseDto.setEmployeeDetailsList(employeeDetailsResponseDtoList);
+
 	}
 
-	public static void mapEmployeeDetailsEach(EmployeeDetailsListRes employeeDetailsResponseDto,
-			EmployeeDetails employeeDetails) {
-		employeeDetailsResponseDto.setContactNumber(employeeDetails.getContactNumber());
-		employeeDetailsResponseDto.setDateOfBirth(employeeDetails.getDateOfBirth());
-		employeeDetailsResponseDto.setEmailId(employeeDetails.getEmailId());
-		employeeDetailsResponseDto.setFirstName(employeeDetails.getFirstName());
-		employeeDetailsResponseDto.setLastName(employeeDetails.getLastName());
-		employeeDetailsResponseDto.setSex(employeeDetails.getSex());
-		employeeDetailsResponseDto.setId(employeeDetails.getId());
-		
-	}
-	
 	public static void mapEmployeeDetails(EmployeeDetailsResponseDto employeeDetailsResponseDto,
-			EmployeeDetails employeeDetails) {
+			EmployeeDetails employeeDetails, boolean retrieveEmployeeService) {
 
 		employeeDetailsResponseDto.setAddressLine1(employeeDetails.getAddressLine1());
 		employeeDetailsResponseDto.setAddressLine2(employeeDetails.getAddressLine2());
@@ -61,29 +54,24 @@ public class EmployeeDetailsUtil {
 		employeeDetailsResponseDto.setSex(employeeDetails.getSex());
 		employeeDetailsResponseDto.setState(employeeDetails.getState());
 		employeeDetailsResponseDto.setId(employeeDetails.getId());
-		employeeDetailsResponseDto.setDepartment(employeeDetails.getDepartment());
-		employeeDetailsResponseDto.setWorkLocation(employeeDetails.getWorkLocation());
-		employeeDetailsResponseDto.setJobRole(employeeDetails.getJobRole());
-		employeeDetailsResponseDto.setReportingPerson(employeeDetails.getReportingPerson());
+		if (!retrieveEmployeeService) {
 
-		// Mapping PassportDetails
-		employeeDetailsResponseDto
-				.setPassportDetails(mapPassportDetails(employeeDetails.getEmployeePassportDetails()));
+			// Mapping PassportDetails
+			employeeDetailsResponseDto.setPassportDetails(
+					mapPassportDetails(employeeDetails.getEmployeePassportDetails()));
 
-		// Mapping workPermit Details
-		employeeDetailsResponseDto.setWorkPermitDetails(
-				mapWorkPermitDetails(employeeDetails.getEmployeeWorkPermitDetails()));
+			// Mapping workPermit Details
+			employeeDetailsResponseDto.setWorkPermitDetails(
+					mapWorkPermitDetails(employeeDetails.getEmployeeWorkPermitDetails()));
 
-		// Mapping Family Details
-		employeeDetailsResponseDto
-				.setFamilyDetails(mapFamilyDetails(employeeDetails.getEmployeeFamilyDetails()));
+			// Mapping Family Details
+			employeeDetailsResponseDto
+					.setFamilyDetails(mapFamilyDetails(employeeDetails.getEmployeeFamilyDetails()));
 
-		// Mapping Payslip Details
-
-		/*
-		 * employeeDetailsResponseDto.setEmployeePaySlipDocumentDetailsResponseDto(
-		 * mapPaySlipDetails(employeeDetails.getEmployeePaySlipDetails()));
-		 */
+			// Mapping Payslip Details
+			employeeDetailsResponseDto.setPayslipDetails(
+					mapPaySlipDetails(employeeDetails.getEmployeePaySlipDetails()));
+		}
 	}
 
 	/*
@@ -162,24 +150,23 @@ public class EmployeeDetailsUtil {
 	 * Method to Map Payslip details of an employee
 	 */
 
-	/*
-	 * private static List<EmployeePaySlipDocumentDetailsResponseDto>
-	 * mapPaySlipDetails( Set<EmployeePaySlipDetails> employeePaySlipDetailsList) {
-	 * List<EmployeePaySlipDocumentDetailsResponseDto>
-	 * employeePaySlipDocumentDetailsResponseDtoList = new
-	 * ArrayList<EmployeePaySlipDocumentDetailsResponseDto>(); if (null !=
-	 * employeePaySlipDetailsList) { for (EmployeePaySlipDetails
-	 * employeePaySlipDetails : employeePaySlipDetailsList) {
-	 * EmployeePaySlipDocumentDetailsResponseDto
-	 * employeePaySlipDocumentDetailsResponseDto = new
-	 * EmployeePaySlipDocumentDetailsResponseDto();
-	 * employeePaySlipDocumentDetailsResponseDto.setDocumentName(
-	 * employeePaySlipDetails.getPaySlipMonth());
-	 * employeePaySlipDocumentDetailsResponseDto.setDocumentNumber(
-	 * employeePaySlipDetails.getPaySlipNumber());
-	 * employeePaySlipDocumentDetailsResponseDtoList.add(
-	 * employeePaySlipDocumentDetailsResponseDto); } } return
-	 * employeePaySlipDocumentDetailsResponseDtoList; }
-	 */
+	private static List<EmployeePaySlipDocumentDetailsResponseDto> mapPaySlipDetails(
+			Set<EmployeePaySlipDetails> employeePaySlipDetailsList) {
+
+		List<EmployeePaySlipDocumentDetailsResponseDto> employeePaySlipDocumentDetailsResponseDtoList = new ArrayList<EmployeePaySlipDocumentDetailsResponseDto>();
+		if (null != employeePaySlipDetailsList) {
+
+			for (EmployeePaySlipDetails employeePaySlipDetails : employeePaySlipDetailsList) {
+
+				EmployeePaySlipDocumentDetailsResponseDto employeePaySlipDocumentDetailsResponseDto = new EmployeePaySlipDocumentDetailsResponseDto();
+
+				employeePaySlipDocumentDetailsResponseDto.setDocumentName(employeePaySlipDetails.getPaySlipMonth());
+				employeePaySlipDocumentDetailsResponseDto.setDocumentNumber(employeePaySlipDetails.getPaySlipNumber());
+				employeePaySlipDocumentDetailsResponseDtoList.add(employeePaySlipDocumentDetailsResponseDto);
+
+			}
+		}
+		return employeePaySlipDocumentDetailsResponseDtoList;
+	}
 
 }

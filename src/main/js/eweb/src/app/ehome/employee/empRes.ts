@@ -2,5 +2,5 @@ import {EmpResDet} from './empResDet';
 
 export  class EmpRes{
 
-employeeList: Array<EmpResDet>;
+employeeDetailsList: Array<EmpResDet>;
 }

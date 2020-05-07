@@ -30,7 +30,7 @@ showAdminPanel = false;
     if(this.eHomeDetails.role == 'Employee'){
         this.showEPanel = true;
     }
-    return this.showEPanel;
+   return this.showEPanel;
   }
 
 

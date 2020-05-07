@@ -1,7 +1,7 @@
 <app-eheader></app-eheader>
 
 <div>
-  <a class="btn btn-link">Employee Details  <a href="#" (click)="download()"><i class="far fa-file-pdf"></i></a> Count: {{employees.length}}</a>
+  <a class="btn btn-link">Employee Details  <a href="#" (click)="!!download()" download="report.pdf"><i class="far fa-file-pdf"></i></a> Count: {{employees.length}}</a>
 </div>
 <table class="table">
   <thead class="thead-dark">
@@ -11,15 +11,19 @@
     <th scope="col">UserId</th>
     <th scope="col">DateOfBirth</th>
     <th scope="col">Contact</th>
+    <th scope="col"></th>
   </tr>
   </thead>
   <tbody *ngFor="let empResDet of employees">
   <tr>
-    <td><a routerLink = "/addemp" routerLinkActive="active">{{empResDet.firstName}} {{empResDet.lastName}}</a></td>
+    <td><a href="#" (click)="!!retrieve(empResDet.id)">{{empResDet.firstName}} {{empResDet.lastName}}</a></td>
     <!--<td>{{empResDet.lastName}}</td>-->
     <td>{{empResDet.emailId}}</td>
     <td>{{empResDet.dateOfBirth}}</td>
     <td>{{empResDet.contactNumber}}</td>
+    <td><a href="#" (click)="!!delete(empResDet.emailId)"><span class="material-icons">
+    delete
+    </span></a></td>
   </tr>
   </tbody>
 </table>
