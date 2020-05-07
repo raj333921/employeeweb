@@ -1,0 +1,99 @@
+<app-eheader></app-eheader>
+<br>
+<h5 class="text-left mt-0">
+  TimeSheet
+</h5>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="atime-tab" data-toggle="tab" href="#atime" role="tab" aria-controls="atime" aria-selected="true">Add Time</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="vmtime-tab" data-toggle="tab" href="#vmtime" role="tab" aria-controls="vmtime" aria-selected="false">View/Modify</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="mstime-tab" data-toggle="tab" href="#mstime" role="tab" aria-controls="mstime" aria-selected="false">Monthly</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="atime" role="tabpanel" aria-labelledby="atime-tab">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label>Available leaves : 20</label>
+    </div>
+  </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="tow">Type of Work: *</label>
+        <select class="form-control" id="tow">
+          <option value="">Choose Type of work</option>
+          <option value="TO">OFFICE</option>
+          <option value="TR">REMOTE</option>
+          <option value="TS">SICK</option>
+          <option value="TV">VACATION</option>
+          <option value="TP">PUBLIC HOLIDAY</option>
+          <option value="TV">FATERNITY</option>
+          <option value="TP">MATERNITY</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="dates">Date *</label>
+        <input class="form-control" id="dates" type="date" placeholder="yyyy-MM-dd" min="2019-01-01" max="2150-12-31"  required />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="tim">Time In:</label>
+        <input type="time" class="form-control" id="tim" name="tim">
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="up">Upload:</label>
+        <input type="file" class="form-control" id="up" name="up">
+      </div>
+    </div>
+  <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary" style="margin:5px">Cancel</a>
+  <a id="saveDa" class="btn btn-primary" (click)="onSubmit()" style="margin:10px;">Save</a>
+  </div>
+  <div class="tab-pane fade" id="vmtime" role="tabpanel" aria-labelledby="vmtime-tab">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="vdates">Date *</label>
+        <input class="form-control" id="vdates" type="date" placeholder="yyyy-MM-dd" min="2019-01-01" max="2150-12-31"  required />
+      </div>
+      <!--<div class="col-md-4 mb-3">
+        <label for="tim">Time In:</label>
+        <input type="time" class="form-control" id="tim" name="tim">
+      </div>-->
+    </div>
+<!--    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="up">Upload:</label>
+        <input type="file" class="form-control" id="up" name="up">
+      </div>
+    </div>-->
+    <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary" style="margin:5px">Cancel</a>
+    <a id="saveDa" class="btn btn-primary" (click)="onSubmit()" style="margin:10px;">View</a>
+  </div>
+  <div class="tab-pane fade" id="mstime" role="tabpanel" aria-labelledby="mstime-tab">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="msmonth">Month *</label>
+        <input class="form-control" id="msmonth" type="month" placeholder="yyyy-MM-dd" min="2019-01-01" max="2150-12-31"  required />
+      </div>
+      <!--<div class="col-md-4 mb-3">
+        <label for="tim">Time In:</label>
+        <input type="time" class="form-control" id="tim" name="tim">
+      </div>-->
+    </div>
+    <!--    <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="up">Upload:</label>
+            <input type="file" class="form-control" id="up" name="up">
+          </div>
+        </div>-->
+    <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary" style="margin:5px">Cancel</a>
+    <a id="saveDa" class="btn btn-primary" (click)="onSubmit()" style="margin:10px;">Download</a>
+  </div>
+</div>
