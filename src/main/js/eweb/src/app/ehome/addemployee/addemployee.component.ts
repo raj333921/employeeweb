@@ -7,7 +7,9 @@ import {EmployeeWorkPermitDetailsRequestDto} from './employeeWorkPermitDetailsRe
 import { EhomeDetails } from '../ehomeDetails';
 import {StorageService} from '../../service/storage.service';
 import { EwebcallService } from '../../service/ewebcall.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import * as _ from 'lodash';
+
 
 @Component({
 selector: 'app-addemployee',
@@ -30,6 +32,9 @@ success = false;
 id = "0";
 value = "";
 files: any[];
+file="";
+valuePass="";
+filePass="";
 addEmpReq: EmployeeDetailsRequestDto = new EmployeeDetailsRequestDto();
 addEmpRes: EmployeeDetailsRequestDto = new EmployeeDetailsRequestDto();
 constructor(private ewebService: EwebcallService,private router: Router,private storageService: StorageService) { }
@@ -80,9 +85,15 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
               console.log(err);
           }
       );
-
 }
     navigato(){
+      if(this.empWpd != null){
+          this.callUpload(this.value,this.file);
+      }
+      if(this.empPass != null){
+          this.callUpload(this.valuePass,this.filePass);
+      }
+      alert("Employee added successfully");
       this.router.navigate(['/employee']);
     }
       get isValidEr() {
@@ -100,43 +111,48 @@ constructor(private ewebService: EwebcallService,private router: Router,private 
       this.saveMe();
     }
 
-  getBase64(file) {
-   var reader = new FileReader();
-   reader.readAsDataURL(file);
-   reader.onload = (e) => {
-     // this.empWpd.documentData = reader.result;
-     //console.log(reader.result);
-   };
-   reader.onerror = function (error) {
-     console.log('Error: ', error);
-   };
-}
 
-
-  onFileChange(event,docType){
+  onFileChangeWp(event,docType){
     let af = ['image/png', 'image/jpeg','application/pdf']
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      // console.log(file);
-     /* if (!_.includes(af, file.type)) {
+      const fileWp = event.target.files[0];
+      if (!_.includes(af, fileWp.type)) {
         alert('Only PNG/JPEG/PDF formats Allowed!');
         this.imageError = 'Only Images are allowed ( JPG | PNG | PDF )';
         return false
-      }*/
+      }
         //{"documentType":"1","documentNumber":"111111111111"}
         this.value = '{\"documentType\":\"'+docType+'\",\"documentNumber\":\"'+this.empWpd.workPermitNumber +'\"}';
-        //this.empWpd.documentName = file.name;
-        //this.getBase64(file);
-         this.ewebService.uploadFile(this.value,file).then(
+        this.file = fileWp;
+      }
+    }
+onFileChangePass(event,docType){
+    let af = ['image/png', 'image/jpeg','application/pdf']
+    if (event.target.files.length > 0) {
+      const filePas = event.target.files[0];
+      if (!_.includes(af, filePas.type)) {
+        alert('Only PNG/JPEG/PDF formats Allowed!');
+        this.imageError = 'Only Images are allowed ( JPG | PNG | PDF )';
+        return false
+      }
+        //{"documentType":"1","documentNumber":"111111111111"}
+        this.valuePass = '{\"documentType\":\"'+docType+'\",\"documentNumber\":\"'+this.empPass.passportNumber +'\"}';
+        this.filePass = filePas;
+      }
+    }
+callUpload(valuePS,filePS){
+  //flag = false;
+  this.ewebService.uploadFile(valuePS,filePS).then(
             (result) => {
                 console.log(result);
+    //            flag = true;
             },
         err => {
-              this.error = true;
+      //        flag = false;
               console.log(err);
           }
       );
-      }
-    }
+  //  return flag;
+  }
 
 }

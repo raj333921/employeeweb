@@ -18,9 +18,9 @@
     </div>
     <div class="card col-sm" style="width:25%;margin:10px;" *ngIf="isValid">
       <div class="card-body">
-        <h5 class="card-title">Documents</h5>
-        <p class="card-text">As an admin You can view/modify documents of an employee/s</p>
-        <a href="documents.html" class="btn btn-primary">Consult</a>
+        <h5 class="card-title">Payslips</h5>
+        <p class="card-text">As an admin You can view/modify/Upload documents of an employee/s</p>
+        <a routerLink = "/payslips" routerLinkActive="active"  class="btn btn-primary">Consult</a>
       </div>
     </div>
   </div>
@@ -34,9 +34,9 @@
     </div>
     <div class="card col-sm" style="width:25%;margin:10px;" *ngIf="isValidE">
       <div class="card-body">
-        <h5 class="card-title">Documents</h5>
-        <p class="card-text">As an employee You can view documents</p>
-        <a href="documents.html" class="btn btn-primary">Consult</a>
+        <h5 class="card-title">Payslips</h5>
+        <p class="card-text">As an employee You can view payslip documents</p>
+        <a routerLink = "/epay" routerLinkActive="active" class="btn btn-primary">Consult</a>
       </div>
     </div>
     <div class="card col-sm" style="width:25%;margin:10px;" *ngIf="isValidE">

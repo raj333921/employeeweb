@@ -19,6 +19,9 @@ import { CpdComponent } from './ehome/cpd/cpd.component';
 import { ProfileComponent } from './ehome/profile/profile.component';
 import { TsheetComponent } from './ehome/tsheet/tsheet.component';
 import { TesheetComponent } from './ehome/tesheet/tesheet.component';
+import { SettingsComponent } from './ehome/settings/settings.component';
+import { PayslipsComponent } from './ehome/payslips/payslips.component';
+import { EpayslipsComponent } from './ehome/epayslips/epayslips.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { TesheetComponent } from './ehome/tesheet/tesheet.component';
     EheaderComponent,
     AddemployeeComponent,
     CpdComponent,
+    SettingsComponent,
+    PayslipsComponent,
+    EpayslipsComponent,
     ProfileComponent,
     TsheetComponent,
     TesheetComponent

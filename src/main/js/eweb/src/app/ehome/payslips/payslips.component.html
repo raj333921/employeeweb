@@ -1,0 +1,78 @@
+<app-eheader></app-eheader>
+<br>
+<h5 class="text-left mt-0">
+  Payslips
+</h5>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="atime-tab" data-toggle="tab" href="#atime" role="tab" aria-controls="atime" aria-selected="true">Upload</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="vmtime-tab" data-toggle="tab" href="#vmtime" role="tab" aria-controls="vmtime" aria-selected="false">View/Modify</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="atime" role="tabpanel" aria-labelledby="atime-tab">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="tow">Employee : *</label>
+        <select class="form-control" id="tow">
+          <option value="">Choose Employee</option>
+          <option value="TO">XYZ</option>
+          <option value="TR">MR</option>
+          <option value="TS">Ddkfjadkjfa</option>
+          <option value="TV">dkfajdfa</option>
+          <option value="TP">dkjfadj</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="dates">Month *</label>
+        <input class="form-control" id="dates" type="month" placeholder="yyyy-MM-dd" min="2019-01-01" max="2150-12-31"  required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="up">Upload:</label>
+        <input type="file" class="form-control" id="up" name="up">
+      </div>
+    </div>
+  <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary" style="margin:5px">Cancel</a>
+  <a id="saveDa" class="btn btn-primary" (click)="onSubmit()" style="margin:10px;">Save</a>
+  </div>
+  <div class="tab-pane fade" id="vmtime" role="tabpanel" aria-labelledby="vmtime-tab">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="tow">Employee : *</label>
+        <select class="form-control" id="tow">
+          <option value="">Choose Employee</option>
+          <option value="TO">XYZ</option>
+          <option value="TR">MR</option>
+          <option value="TS">Ddkfjadkjfa</option>
+          <option value="TV">dkfajdfa</option>
+          <option value="TP">dkjfadj</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="vdates">Month *</label>
+        <input class="form-control" id="vdates" type="month" placeholder="yyyy-MM-dd" min="2019-01-01" max="2150-12-31"  required />
+      </div>
+      <!--<div class="col-md-4 mb-3">
+        <label for="tim">Time In:</label>
+        <input type="time" class="form-control" id="tim" name="tim">
+      </div>-->
+    </div>
+<!--    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="up">Upload:</label>
+        <input type="file" class="form-control" id="up" name="up">
+      </div>
+    </div>-->
+    <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary" style="margin:5px">Cancel</a>
+    <a id="saveDa" class="btn btn-primary" (click)="onSubmit()" style="margin:10px;">View</a>
+  </div>
+</div>

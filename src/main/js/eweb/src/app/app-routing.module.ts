@@ -11,6 +11,10 @@ import { CpdComponent } from './ehome/cpd/cpd.component';
 import { ProfileComponent } from './ehome/profile/profile.component';
 import { TsheetComponent } from './ehome/tsheet/tsheet.component';
 import { TesheetComponent } from './ehome/tesheet/tesheet.component';
+import { SettingsComponent } from './ehome/settings/settings.component';
+import { PayslipsComponent } from './ehome/payslips/payslips.component';
+import { EpayslipsComponent } from './ehome/epayslips/epayslips.component';
+
 
 const routes: Routes = [
  { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,9 +26,13 @@ const routes: Routes = [
   { path: 'eheader', component: EheaderComponent },
   { path: 'addemp', component: AddemployeeComponent },
   { path: 'cpd', component: CpdComponent },
-{ path: 'profile', component: ProfileComponent },
-{ path: 'tsheet', component: TsheetComponent },
-{ path: 'tesheet', component: TesheetComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'tsheet', component: TsheetComponent },
+  { path: 'tesheet', component: TesheetComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'payslips', component: PayslipsComponent },
+  { path: 'epay', component: EpayslipsComponent }
+
 ];
 
 @NgModule({
