@@ -1,0 +1,126 @@
+<app-eheader></app-eheader>
+<br>
+<h5 class="text-left mt-0">
+  Expenses
+</h5>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="approvals-tab" data-toggle="tab" href="#approvals" role="tab" aria-controls="approvals" aria-selected="true">Approvals</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="claims-tab" data-toggle="tab" href="#claims" role="tab" aria-controls="claims" aria-selected="false">Claim</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">History</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="approvals" role="tabpanel" aria-labelledby="atime-tab">
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">EmpName</th>
+        <th scope="col">Type</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Attachment</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>XYZ ADFAD</td>
+        <td>Bus Pass</td>
+        <td>25</td>
+        <td><a href="#"><i class="fa fa-download"></i></a></td>
+        <td><a href="#"><i class='fas fa-thumbs-up'></i></a></td>
+        <td><a href="#"><i class='fas fa-thumbs-down'></i></a></td>
+      </tr>
+      <tr>
+        <td>ABAMDAFDA</td>
+        <td>Team Party</td>
+        <td>46</td>
+        <td><a href="#"><i class="fa fa-download"></i></a></td>
+        <td><a href="#"><i class='fas fa-thumbs-up'></i></a></td>
+        <td><a href="#"><i class='fas fa-thumbs-down'></i></a></td>
+      </tr>
+      </tbody>
+    </table>
+  <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary" style="margin:5px">Back</a>
+  </div>
+  <div class="tab-pane fade" id="claims" role="tabpanel" aria-labelledby="vmtime-tab">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="tow">Employee : *</label>
+        <select class="form-control" id="tow">
+          <option value="">Choose Employee</option>
+          <option value="TO">XYZ</option>
+          <option value="TR">MR</option>
+          <option value="TS">Ddkfjadkjfa</option>
+          <option value="TV">dkfajdfa</option>
+          <option value="TP">dkjfadj</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="vdates">Type of Claim *</label>
+        <input class="form-control" id="vdates" type="text" placeholder="Type of claim" required />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="amo">Amount *</label>
+        <input class="form-control" id="amo" type="text" placeholder="Amount" required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="att">Attachment </label>
+        <input class="form-control" id="att" type="file" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="res">Reason </label>
+        <input class="form-control" id="res" type="textarea" placeholder="reason" required />
+      </div>
+    </div>
+<!--    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="up">Upload:</label>
+        <input type="file" class="form-control" id="up" name="up">
+      </div>
+    </div>-->
+    <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary" style="margin:5px">Cancel</a>
+    <a id="saveDa" class="btn btn-primary" (click)="onSubmit()" style="margin:10px;">Submit</a>
+  </div>
+  <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="vmtime-tab">
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">EmpName</th>
+        <th scope="col">Type</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Attachment</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>XYZ ADFAD</td>
+        <td>Office</td>
+        <td>25</td>
+        <td><a href="#"><i class="fa fa-download"></i></a></td>
+        <td><i class='fas fa-thumbs-up'></i></td>
+      </tr>
+      <tr>
+        <td>ABAMDAFDA</td>
+        <td>Training</td>
+        <td>46</td>
+        <td><a href="#"><i class="fa fa-download"></i></a></td>
+        <td><i class='fas fa-thumbs-down'></i></td>
+      </tr>
+      </tbody>
+    </table>
+    <a routerLink = "/ehome" routerLinkActive="active" class="btn btn-secondary" style="margin:5px">Back</a>
+  </div>
+  </div>
