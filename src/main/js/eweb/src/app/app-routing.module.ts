@@ -14,6 +14,9 @@ import { TesheetComponent } from './ehome/tesheet/tesheet.component';
 import { SettingsComponent } from './ehome/settings/settings.component';
 import { PayslipsComponent } from './ehome/payslips/payslips.component';
 import { EpayslipsComponent } from './ehome/epayslips/epayslips.component';
+import { AexpenseComponent } from './ehome/aexpense/aexpense.component';
+import { EmpexpenseComponent } from './ehome/empexpense/empexpense.component';
+
 
 
 const routes: Routes = [
@@ -31,8 +34,9 @@ const routes: Routes = [
   { path: 'tesheet', component: TesheetComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'payslips', component: PayslipsComponent },
-  { path: 'epay', component: EpayslipsComponent }
-
+  { path: 'epay', component: EpayslipsComponent },
+  { path: 'aexp', component: AexpenseComponent },
+  { path: 'empexp', component: EmpexpenseComponent },
 ];
 
 @NgModule({

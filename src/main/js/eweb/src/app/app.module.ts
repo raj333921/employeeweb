@@ -22,6 +22,8 @@ import { TesheetComponent } from './ehome/tesheet/tesheet.component';
 import { SettingsComponent } from './ehome/settings/settings.component';
 import { PayslipsComponent } from './ehome/payslips/payslips.component';
 import { EpayslipsComponent } from './ehome/epayslips/epayslips.component';
+import { AexpenseComponent } from './ehome/aexpense/aexpense.component';
+import { EmpexpenseComponent } from './ehome/empexpense/empexpense.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { EpayslipsComponent } from './ehome/epayslips/epayslips.component';
     EpayslipsComponent,
     ProfileComponent,
     TsheetComponent,
-    TesheetComponent
+    TesheetComponent,
+    AexpenseComponent,
+    EmpexpenseComponent
   ],
   imports: [
     BrowserModule,

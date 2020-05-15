@@ -43,14 +43,14 @@
       <div class="card-body">
         <h5 class="card-title">Expenses</h5>
         <p class="card-text">As an employee You can view/Upload documents for expenses</p>
-        <a href="documents.html" class="btn btn-primary">Consult</a>
+        <a routerLink = "/empexp" routerLinkActive="active" class="btn btn-primary">Consult</a>
       </div>
     </div>
     <div class="card col-sm" style="width:25%;margin:10px;" *ngIf="isValid">
       <div class="card-body">
         <h5 class="card-title">Expenses</h5>
         <p class="card-text">As an Admin You can View/Upload/Approve documents for expenses</p>
-        <a href="documents.html" class="btn btn-primary">Consult</a>
+        <a routerLink = "/aexp" routerLinkActive="active" class="btn btn-primary">Consult</a>
       </div>
     </div>
     <div class="card col-sm" style="width:25%;margin:10px;" *ngIf="isValid">
