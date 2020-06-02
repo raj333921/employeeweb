@@ -1,6 +1,6 @@
 package com.employee.product.employeedetails.response.dto;
 
-import java.sql.Date;
+
 import java.util.List;
 
 import lombok.Data;
@@ -8,8 +8,8 @@ import lombok.Data;
 @Data
 public class EmployeeDetailsResponseDto {
 
-	private int id;
-	
+	private String id;
+
 	private String firstName;
 
 	private String lastName;
@@ -30,7 +30,17 @@ public class EmployeeDetailsResponseDto {
 
 	private String contactNumber;
 
-	private Date dateOfBirth;
+	private String dateOfBirth;
+
+	private String postalCode;
+
+	private String jobRole;
+
+	private String department;
+
+	private String reportingPerson;
+
+	private String workLocation;
 
 	private List<EmployeeWorkPermitDetailsResponseDto> workPermitDetails;
 
@@ -38,6 +48,8 @@ public class EmployeeDetailsResponseDto {
 
 	private List<EmployeeFamilyDetailsResponseDto> familyDetails;
 
-	private List<EmployeePaySlipDocumentDetailsResponseDto> payslipDetails;
+	// Commenting the call to map Payslip details as it is not required in this
+	// module
+	// private List<EmployeePaySlipDocumentDetailsResponseDto> payslipDetails;
 
 }

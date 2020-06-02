@@ -3,7 +3,11 @@ package com.employee.product.utils;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.employee.product.employeedetails.request.dto.AddEmployeeRequestDto;
 import com.employee.product.employeedetails.request.dto.EmployeeDetailsRequestDto;
@@ -40,6 +44,7 @@ public class AddEmployeeDetailsUtil {
 		employeeDetails.setState(emloyeeDetailsRequestDto.getState());
 		employeeDetails.setWorkLocation(emloyeeDetailsRequestDto.getWorkLocation());
 		employeeDetails.setActive(1);
+		employeeDetails.setPostalCode(emloyeeDetailsRequestDto.getPostalCode());
 		if (null != emloyeeDetailsRequestDto.getId()) {
 			employeeDetails.setId(emloyeeDetailsRequestDto.getId());
 		}
@@ -58,6 +63,8 @@ public class AddEmployeeDetailsUtil {
 				employeeWorkPermitDetails.setValidity(employeeWorPermitDetailsRequestDto.getValidity());
 				employeeWorkPermitDetails.setStartDate(employeeWorPermitDetailsRequestDto.getStartDate());
 				employeeWorkPermitDetails.setEndDate(employeeWorPermitDetailsRequestDto.getEndDate());
+				employeeWorkPermitDetails.setDocumentName(employeeWorPermitDetailsRequestDto.getDocumentName());
+				employeeWorkPermitDetails.setDocumentType(employeeWorPermitDetailsRequestDto.getDocumentType());
 
 				employeeWorkPermitDetailsSet.add(employeeWorkPermitDetails);
 
@@ -103,14 +110,16 @@ public class AddEmployeeDetailsUtil {
 				employeePassportDetails.setStartDate(employeePassportDetailsRequestDto.getStartDate());
 				employeePassportDetails.setValidity(employeePassportDetailsRequestDto.getValidity());
 				employeePassportDetails.setEndDate(employeePassportDetailsRequestDto.getEndDate());
+				employeePassportDetails.setBirthPlace(employeePassportDetailsRequestDto.getBirthPlace());
 
 				employeePassportDetailsSet.add(employeePassportDetails);
 
 			}
 		}
 		employeeDetails.setEmployeePassportDetails(employeePassportDetailsSet);
-
+		/*   Commenting as payslip is not required in this module
 		Set<EmployeePaySlipDetails> employeePaySlipDetailsSet = new HashSet<EmployeePaySlipDetails>();
+		
 
 		List<EmployeePaySlipDetailsRequestDto> employeePaySlipDetailsRequestDtoList = emloyeeDetailsRequestDto
 				.getPaySlipDetails();
@@ -125,20 +134,20 @@ public class AddEmployeeDetailsUtil {
 			}
 
 			employeeDetails.setEmployeePaySlipDetails(employeePaySlipDetailsSet);
-		}
+		} */
 
 	}
 
 	public static void mapAddEmployeeRequest(AddEmployeeRequestDto addEmployeeRequestDto, Users users,
-			EmployeeDetails employeeDetails, CompanyDetails companyDetails) {
+			EmployeeDetails employeeDetails, CompanyDetails companyDetails,boolean newEmployee,PasswordEncoder encoder) {
 
 		EmployeeDetailsRequestDto emloyeeDetailsRequestDto = addEmployeeRequestDto.getEmployeeDetails();
-
+		
 		users.setActive(1);
 		users.setCountry(emloyeeDetailsRequestDto.getCountry());
 		users.setFirstName(emloyeeDetailsRequestDto.getFirstName());
 		users.setLastName(emloyeeDetailsRequestDto.getLastName());
-		users.setPassword(emloyeeDetailsRequestDto.getEmailId());
+		users.setPassword(encoder.encode(emloyeeDetailsRequestDto.getEmailId()));
 		users.setRole("Employee");
 		users.setUserName(emloyeeDetailsRequestDto.getEmailId());
 		users.setCreatedAt(new Date());
@@ -157,5 +166,44 @@ public class AddEmployeeDetailsUtil {
 		// users.setEmployeeDetails(employeeDetailsSet);
 
 		//users.setCompanyDetails(companyDetails);
+	}
+	
+	
+	public static String generateEmployeeId(String companyName, String firstName, String lastName) {
+		String comp = null;
+		String fName = null;
+		String sName = null;
+			int num = generateRandomNumber();
+			if(companyName.length()>4) {
+			comp = companyName.substring(0,4);
+			}
+			else
+			{
+				comp = companyName;
+			}
+			fName = firstName.toUpperCase().substring(0,1);
+			sName = lastName.toUpperCase().substring(0,1);
+			String employeeId = comp.toUpperCase() + fName + sName + String.valueOf(num);
+			
+			return employeeId;
+		
+	}
+	
+	public static int generateRandomNumber() {
+		Random generator = new Random();
+		generator.setSeed(System.currentTimeMillis());
+		int num = generator.nextInt(900000) + 100000;
+		return num;
+		
+	}
+	
+	
+	public static boolean checkForNewOrUpdateEmployee(boolean newEmployee,AddEmployeeRequestDto addEmployeeRequestDto) {
+		
+		if(StringUtils.isBlank(addEmployeeRequestDto.getEmployeeDetails().getId())) {
+			newEmployee = true;
+		}
+		
+		return newEmployee;
 	}
 }

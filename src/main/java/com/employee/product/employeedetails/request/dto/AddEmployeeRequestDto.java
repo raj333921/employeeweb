@@ -5,9 +5,7 @@ import lombok.Data;
 @Data
 public class AddEmployeeRequestDto {
 	
-	private String adminuserName;
-	
-	private int companyId;
+	private String companyId;
 	
 	private EmployeeDetailsRequestDto employeeDetails;
 	

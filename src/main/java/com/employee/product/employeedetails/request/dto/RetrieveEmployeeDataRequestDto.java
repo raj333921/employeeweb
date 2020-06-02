@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class RetrieveEmployeeDataRequestDto {
 	
-	private Integer employeeId;
-	private String userName;
-	private String password;
+	private String employeeId;
+//	private String userName;
+//	private String password;
 
 }

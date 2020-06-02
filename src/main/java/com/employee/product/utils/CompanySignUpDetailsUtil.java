@@ -33,7 +33,7 @@ public class CompanySignUpDetailsUtil {
 		users.setCreatedAt(new Date());
 		companyDetailsMapping(companyDetailsDto, companyDetails);
 
-		 users.setCompanyDetails(companyDetails);
+		users.setCompanyDetails(companyDetails);
 
 		employeeDetailsMapping(users, companyDetailsDto, companyDetails);
 
@@ -52,6 +52,9 @@ public class CompanySignUpDetailsUtil {
 		companyDetails.setContactNumber(companyDetailsDto.getContactNumber());
 		companyDetails.setSizeOfTheCompany(companyDetailsDto.getSizeOfTheCompany());
 		companyDetails.setActive(companyDetailsDto.getActive());
+		int num = AddEmployeeDetailsUtil.generateRandomNumber();
+		String cName = companyDetailsDto.getCompanyName().substring(0,4);
+		companyDetails.setId(cName.toUpperCase() + String.valueOf(num));
 
 	}
 
@@ -72,6 +75,9 @@ public class CompanySignUpDetailsUtil {
 
 		employeeDetails.setCompanyDetails(companyDetails);
 		employeeDetails.setActive(1);
+		employeeDetails.setId(AddEmployeeDetailsUtil.generateEmployeeId(companyDetailsDto.getCompanyName(),
+				employeeDetailsDto.getFirstName(), employeeDetailsDto.getLastName()));
+
 		employeeDetailsSet.add(employeeDetails);
 
 		users.setEmployeeDetails(employeeDetailsSet);
@@ -106,7 +112,7 @@ public class CompanySignUpDetailsUtil {
 	 * }
 	 */
 
-	 public static void sendMessage(MailSender mailSender,String emailId, String companyName, Users users) {
+	public static void sendMessage(MailSender mailSender, String emailId, String companyName, Users users) {
 		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 
 		StringBuilder result = new StringBuilder();
@@ -127,11 +133,8 @@ public class CompanySignUpDetailsUtil {
 		simpleMailMessage.setSubject("SignUp Is Successfull");
 
 		mailSender.send(simpleMailMessage);
-
 	} 
-	
-	
-	
+
 	public static CompanyDetailsResponseDto companyDetailsSignUpResponseMapping(
 			CompanyDetailsResponseDto companyDetailsResponseDto) {
 

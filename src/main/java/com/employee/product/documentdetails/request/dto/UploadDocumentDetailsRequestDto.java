@@ -9,5 +9,9 @@ public class UploadDocumentDetailsRequestDto {
 	
 	private String documentNumber;
 	
+	//private String loggedInUserName;
+	
+	private String employeeId; // EmployeeId for which document needs to be uploaded
+	
 	
 }
